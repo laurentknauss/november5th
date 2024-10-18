@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import '@/app/globals.css';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
-//import { useAccount, useContractRead, useContractWrite } from 'wagmi';
+import { useAccount, useContractRead, useContractWrite } from 'wagmi';
 import { ethers } from 'ethers';
 //import abi from '../abi/voting.json'; // Import your contract ABI
 
@@ -15,7 +15,8 @@ import { Button, Label, Progress } from 'daisyui';
 const contractAddress = '0xYOUR_CONTRACT_ADDRESS'; // Replace with your contract address
 
 export default function Home() {
-  /*const { address, isConnected } = useAccount();
+  const { address, isConnected } = useAccount();
+  /*
   const [candidate1Votes, setCandidate1Votes] = useState(0);
   const [candidate2Votes, setCandidate2Votes] = useState(0);
   const [hasVoted, setHasVoted] = useState(false);
