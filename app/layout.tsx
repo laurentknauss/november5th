@@ -45,7 +45,7 @@ export default function RootLayout({
        accentColor: 'ffffaf',
        overlayBlur: 'large',
        accentColorForeground: 'black',
-       borderRadius: 'large', 
+       borderRadius: 'small', 
        fontStack: 'system',
         })} initialChain={421614}   >
             <div className="flex-grow"> {children}     </div> 
