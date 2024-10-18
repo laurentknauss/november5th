@@ -2,7 +2,7 @@
 "use client"; 
 
 import { useState, useEffect } from 'react';
-import '@/globals.css';
+import '@/app/globals.css';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
 //import { useAccount, useContractRead, useContractWrite } from 'wagmi';

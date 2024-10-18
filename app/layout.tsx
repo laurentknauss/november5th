@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { RainbowKitProvider, Chain, midnightTheme } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
-import { config } from "./app/config" ; 
+import { config } from "@/app/config" ; 
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"; 
 import { Inter } from "next/font/google"; 
 import { preload } from "react-dom";
