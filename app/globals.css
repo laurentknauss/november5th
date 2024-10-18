@@ -25,3 +25,38 @@ body {
     text-wrap: balance;
   }
 }
+/* app/globals.css */
+
+/* ... existing global styles ... */
+
+.maintenance-container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.maintenance-main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.maintenance-title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.maintenance-description {
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
