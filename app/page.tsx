@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount, useReadContract, useWriteContract } from 'wagmi';
 //import { readContract } from 'wagmi'; // Import useContractRead hook
-//import abi from '../abi/voting.json'; // Import your contract ABI
+import {abi} from '@/app/abi'; // Import your contract ABI
 
 // DaisyUI components
 import { Button, Label, Progress } from 'daisyui';
@@ -18,7 +18,7 @@ export default function Home() {
   const [candidate2Votes, setCandidate2Votes] = useState(0);
   const [hasVoted, setHasVoted] = useState(false);
 
-  // Wagmi contract hooks
+/*  // Wagmi contract hooks
   const { data: votes1 } = useReadContract({
     address: contractAddress,
     abi: abi,
@@ -66,7 +66,7 @@ export default function Home() {
     };
     checkIfVoted();
   }, [address]);
-*/
+
   const handleVote = async (candidateIndex: number) => {
     try {
       await castVote({
@@ -83,14 +83,14 @@ export default function Home() {
       console.error('Error casting vote:', error);
       // Handle error (e.g., display an error message to the user)
     }
-  };
+  };*/
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
           Decentralized Voting Dapp
-        </h1>
+        </h1> In MAINTENANCE
 
         <div className="mt-10">
           {isConnected ? (
@@ -101,10 +101,11 @@ export default function Home() {
                 <div className="mt-10">
                   <Label className="text-xl">Cast your vote:</Label>
                   <div className="flex space-x-4 mt-4">
-                    <Button color="primary" onClick={() => handleVote(0)}>
+                    <Button color="primary"
+                     >
                       Candidate 1
                     </Button>
-                    <Button color="secondary" onClick={() => handleVote(1)}>
+                    <Button color="secondary" >
                       Candidate 2
                     </Button>
                   </div>

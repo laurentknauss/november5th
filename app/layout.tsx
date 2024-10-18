@@ -1,8 +1,9 @@
+'use client'; 
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { RainbowKitProvider, Chain, midnightTheme } from "@rainbow-me/rainbowkit";
+import { RainbowKitProvider, Chain, darkTheme } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import { config } from "@/app/config" ; 
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"; 
@@ -19,12 +20,12 @@ const inter = Inter({
   preload: true,
 });
 
-
+/*
 export const metadata: Metadata = {
   title: "November 5th US election Blockchain Ballot ",
   description: "Cast your vote for the next US president on the blockchain", 
 };
-
+*/
 
 
 export default function RootLayout({
@@ -40,12 +41,12 @@ export default function RootLayout({
       <RainbowKitProvider
       modalSize="compact"
       locale="en-US"
-      theme={midnightTheme({
-       accentColor: "rainbow",
-       overlayBlur: "large",
-       accentColorForeground: "rainbow",
-       borderRadius: "large", 
-       fontStack: "system",
+      theme={darkTheme({
+       accentColor: 'ffffaf',
+       overlayBlur: 'large',
+       accentColorForeground: 'black',
+       borderRadius: 'large', 
+       fontStack: 'system',
         })} initialChain={421614}   >
             <div className="flex-grow"> {children}     </div> 
       </RainbowKitProvider>
