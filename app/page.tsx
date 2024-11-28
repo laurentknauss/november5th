@@ -15,7 +15,8 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold mb-8">Decentralized Voting DApp</h1>
+        <h1 className="text-6xl font-bold mb-8">Blockchain-based Voting DApp</h1>
+
         
         <div className="mb-8 p-4 border-2 border-black rounded-lg bg-[#87CEEB] shadow-lg">
           <ConnectButton />
