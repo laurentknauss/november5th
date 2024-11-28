@@ -1,246 +1,207 @@
+"use client";
 
-"use client";  
-
-import { FC, useState, useEffect  } from 'react'; 
-import { useWriteContract,  useReadContract, useBalance, useSimulateContract, useSwitchChain, useAccount, useWaitForTransactionReceipt } from 'wagmi'; 
+import { FC, useState, useEffect } from 'react';
+import { useWriteContract, useReadContract, useAccount, useWaitForTransactionReceipt, useDisconnect } from 'wagmi';
 import { ThreeDots } from 'react-loader-spinner';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { abi } from '@/app/abi';
+import { contractAddresses } from '@/app/contractAddresses';
 
-import { abi } from '@/app/abi';  
-//import { contractAddresses } from './app/contractAddresses'; 
-import {  ethers, } from 'ethers'; 
+type MessageType = {
+  type: 'info' | 'error' | 'success';
+  content: string;
+} | null;
 
+const REPUBLICAN_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/1200px-Republicanlogo.svg.png";
+const DEMOCRAT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/DemocraticLogo.svg/1200px-DemocraticLogo.svg.png";
 
+const BallotEntrance: FC = () => {
+  const router = useRouter();
+  const { disconnect } = useDisconnect();
+  const { isConnected, address } = useAccount();
+  const [isTransacting, setIsTransacting] = useState(false);
+  const [message, setMessage] = useState<MessageType>(null);
 
-
-const LotteryEntrance:  FC = () => { 
-    const { isConnected , chain} = useAccount(); 
-    const [isTransacting, setIsTransacting] = useState(false); 
-    //const [isLoading, setIsLoading] = useState(false); 
-    const [ message, setMessage ] = useState<{ type : 'info' | 'error' | 'success' ; content: string } | null>(null ); 
+  // Read contract states
+  const { data: hasVoted } = useReadContract({
+    address: contractAddresses[421614][0] as `0x${string}`,
+    abi: abi,
+    functionName: 'hasVoted',
     
-//    const [isSuccess, setIsSuccess] = useState(false);
+  });
 
-  const { writeContract , data: hash,  error: writeError } = useWriteContract(); 
-  const {isLoading: isConfirming, isSuccess: isConfirmed} = useWaitForTransactionReceipt({ 
-    hash, 
-  }); 
+  const { data: votingEndTime } = useReadContract({
+    address: contractAddresses[421614][0] as `0x${string}`,
+    abi: abi,
+    functionName: 'votingEndTime',
+  });
 
-    
-  const { switchChain, chains } = useSwitchChain(); 
+  const { data: votingFinalized } = useReadContract({
+    address: contractAddresses[421614][0] as `0x${string}`,
+    abi: abi,
+    functionName: 'votingFinalized',
+  });
 
-  const supportedChains = [11155111, 43113]; 
+  const { data: requiredBalance } = useReadContract({
+    address: contractAddresses[421614][0] as `0x${string}`,
+    abi: abi,
+    functionName: 'requiredBalance',
+  });
 
-//  const addresses: { [key: string] : string[] } = contractAddresses; 
+  // Write contract functions
+  const { writeContract: vote, data: voteData } = useWriteContract();
 
-  const raffleAddress :  `0x${string}` | undefined =  
-  chain && supportedChains.includes(chain?.id!)  
-  ? (addresses[chain.id.toString()]?.[0]   as `0x${string}` | undefined ) : undefined;   
-
-// State hooks
-const [entranceFee, setEntranceFee] = useState("0");
-const [numberOfPlayers, setNumberOfPlayers] = useState("0");
-const [recentWinner, setRecentWinner] = useState("0");
-const [ contractBalance, setContractBalance] = useState("0"); 
-const [lastPlayer, setLastPlayer] = useState("0"); 
-
-// View Functions
-
-
-
-
-
-
-const { data: balanceData  } = useReadContract({
-abi: abi,
-address : raffleAddress, 
-functionName: "getContractBalance",
-}); 
-
-const { data: NumberOfPlayersData } = useReadContract({
-  abi: abi,
-  address: raffleAddress,
-  functionName: "getNumberOfPlayers",
-});
-
-
-const { data: entranceFeeData } = useReadContract({
-  abi: abi,
-  address: raffleAddress,
-  functionName: "getEntranceFee",
-});
-
-
-const { data: recentWinnerData } = useReadContract({
-  abi: abi,
-  address: raffleAddress,
-  functionName: "getRecentWinner",
-    
+  // Wait for transaction receipt
+  const { isLoading: isConfirming, isSuccess: isConfirmed } = 
+    useWaitForTransactionReceipt({
+      hash: voteData,
     });
 
-
-
-
-
-
-
-    const handleWrite = async () => {
-      if (!raffleAddress || !entranceFeeData) {
-        setMessage({ type: 'error', content: 'Contract address or entrance fee not available' }); 
-        //toast.error("Contract address or entrance fee not available"); 
-        return;
-      }
-
-      setIsTransacting(true); 
-      setMessage({ type: 'info', content: 'Broadcasting transaction to the chain...' }); 
-      //setIsLoading(true); 
-
-      // Create a toast ID to update the same toast with the transaction status 
-      //const toastId = toast.info("starting transaction...",
-      //  { autoClose: false, }); 
-
-      
-      try {
-        await writeContract({
-          abi: abi,
-          address: raffleAddress,
-          functionName: "enterRaffle",
-                    value: entranceFeeData,
-        } );
-
-
-
-      } catch (error) {
-          console.error("Transaction Error:", error);
-          setMessage({ type: 'error', content: 'Transaction failed. Please try again' });
-
-      
-          
-          setIsTransacting(false); 
-          
-      }
-  };
-
-    
-        
-    
-    
-    
-
-    // Wait for transaction receipt
-    //Hook that waits for the transaction to be included on a block, and then returns the transaction receipt.
-    // If the transaction reverts, then the action will throw an error.
-    //const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
-      //  hash: writeData,
-    //});
-
-useEffect( () => { 
-  if  (isConfirmed) { 
-    setMessage({ type: 'success', content: 'You successfully entered the lottery!'}); 
-    setIsTransacting(false); 
-  } 
-  if (writeError) { 
-    setMessage({ type: 'error', content: 'Error entering the lottery!'}); 
-    setIsTransacting(false); 
-  }
-}, [isConfirmed, writeError]); 
-
-
-
-useEffect(() => {
-    if (entranceFeeData) {
-      setEntranceFee(ethers.formatEther(entranceFeeData.toString()));
+  const handleVote = async (candidateIndex: number) => {
+    if (!isConnected) {
+      setMessage({ type: 'error', content: 'Please connect your wallet first' });
+      return;
     }
 
-    if (balanceData) {
-      setContractBalance(ethers.formatEther(balanceData.toString()));
-    } 
+    try {
+      setIsTransacting(true);
+      setMessage({ type: 'info', content: 'Please confirm the transaction in your wallet' });
 
-    
+      await vote({
+        address: contractAddresses[421614][0]    as `0x${string}`,
+        abi: abi,
+        functionName: 'vote',
+        args: [BigInt(candidateIndex)],
+      });
 
-    if (NumberOfPlayersData) { 
-      setNumberOfPlayers(NumberOfPlayersData.toString());
-    } 
-    if (recentWinnerData) {
-      setRecentWinner(recentWinnerData.toString()); 
-    }   
-  }, [entranceFeeData,  recentWinnerData, balanceData, NumberOfPlayersData]);   
+    } catch (error) {
+      console.error('Error voting:', error);
+      setMessage({ 
+        type: 'error', 
+        content: error instanceof Error ? error.message : 'Failed to cast vote' 
+      });
+    } finally {
+      setIsTransacting(false);
+    }
+  };
 
-console.log("raffleAddress", raffleAddress); 
+  // Update message when transaction is confirmed
+  useEffect(() => {
+    if (isConfirmed) {
+      setMessage({ type: 'success', content: 'Vote successfully cast!' });
+    }
+  }, [isConfirmed]);
 
+  const handleDisconnect = () => {
+    disconnect();
+    router.push('/');
+  };
 
+  if (!isConnected) {
+    return (
+      <div className="text-center p-6">
+        <p className="text-lg">Please connect your wallet to vote</p>
+      </div>
+    );
+  }
 
+  return (
+    <div className="max-w-4xl mx-auto p-6">
+      <h2 className="text-2xl font-bold mb-6">Cast Your Vote</h2>
 
-return ( 
-  
-    <div className="flex flex-col justify-center items-center min-h-screen bg-[#0a0a0a]">
-        <h1 className="text-2xl font-bold text-center"></h1>
-        {raffleAddress ? (
-            <>
-                <button
-                    className="text-[#fc74a6] font-bold mx-4 mb-10 py-8 px-8 rounded-full glitter-button"
-                    style={{ background: 'linear-gradient(80deg, #ff7e5f 0%, #00d2ff 5%)' }}
-                    onClick={handleWrite}
-                    disabled={isTransacting}
-                >
-                    {isTransacting ? (
-                        <ThreeDots
-                            color='linear-gradient(170deg, #ff7e5f 0%, #00d2ff 90%)'
-                            height="100"
-                            width="140"
-                            radius="4"
-                            ariaLabel='three dots loading'
-                            wrapperStyle={{ display: 'flex', justifyContent: 'center' }}
-                            wrapperClass=''
-                            visible={true}
-                        />
-                    ) : (
-                        'PLAY LOTTERY'
-                    )}
-                </button>
+      {message && (
+        <div className={`p-4 mb-4 rounded ${
+          message.type === 'error' ? 'bg-red-100 text-red-700' :
+          message.type === 'success' ? 'bg-green-100 text-green-700' :
+          'bg-blue-100 text-blue-700'
+        }`}>
+          {message.content}
+        </div>
+      )}
 
-                {message && (
-                    <p className={`mt-4 text-center ${
-                        message.type === 'error' ? 'text-red-800 font-bold' :
-                        message.type === 'success' ? 'text-white font-bold' :
-                        'text-white'
-                    }`}>
-                        {message.content}
-                    </p>
-                )}
-
-                <div className="flex text-[#fc74a6] flex-col items-center ml-10 mr-12 mt-4 bg-[#0a0a0a]">
-                    <div className='font-bold text-center text-2xl text-[#fc74a6] mt-4 bg-black-200'>
-                        Entrance Fee: {entranceFee} eth:avax
-                    </div>
-                    <br />
-
-                    
-                    <div className='font-bold text-center text-2xl text-[#fc74a6] mt-4'>
-                        <strong>
-                            Current pot to win is  {contractBalance} eth/avax
-                            
-                        </strong>
-                    </div>
-                    
-                    <div className='font-bold text-center text-2xl text-[#fc74a6] mt-4'>
-                        Number of players: {numberOfPlayers}
-                    </div> 
-
-
-                    <div className='font-bold text-center text-2xl text-[#fc74a6] mt-4'>
-                        Last winner was wallet  {recentWinner} 
-                    </div>
-
-                    <div className='font-bold text-center text-2xl  text-[#fc74a6] justify-center mt-4'>
-                        You are interacting with the smart contract '{raffleAddress}' <br />
-                        on Chain ID {chain?.id}
-                    </div>
+      {hasVoted ? (
+        <div className="bg-gray-100 p-4 rounded mb-4">
+          <p className="mb-4">You have already cast your vote</p>
+        </div>
+      ) : votingFinalized ? (
+        <div className="bg-yellow-100 p-4 rounded mb-4">
+          <p className="mb-4">Voting has been finalized</p>
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <div className="flex gap-8 w-full">
+            <button
+              onClick={() => handleVote(0)}
+              disabled={isTransacting || isConfirming}
+              className="flex-1 bg-red-500 text-white py-4 px-12 rounded-lg hover:bg-red-600 disabled:opacity-50 min-w-[300px] text-xl flex flex-col items-center justify-center gap-4"
+            >
+              {isTransacting || isConfirming ? (
+                <div className="flex items-center justify-center">
+                  <ThreeDots color="#ffffff" height={24} width={24} />
                 </div>
-            </>
-        ) : (
-            <div>...</div>
-        )}
+              ) : (
+                <>
+                  <div className="relative w-24 h-24 mb-2">
+                    <Image
+                      src={REPUBLICAN_LOGO}
+                      alt="Republican Party"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                  <span>Vote Republican</span>
+                </>
+              )}
+            </button>
+
+            <button
+              onClick={() => handleVote(1)}
+              disabled={isTransacting || isConfirming}
+              className="flex-1 bg-blue-500 text-white py-4 px-12 rounded-lg hover:bg-blue-600 disabled:opacity-50 min-w-[300px] text-xl flex flex-col items-center justify-center gap-4"
+            >
+              {isTransacting || isConfirming ? (
+                <div className="flex items-center justify-center">
+                  <ThreeDots color="#ffffff" height={24} width={24} />
+                </div>
+              ) : (
+                <>
+                  <div className="relative w-24 h-24 mb-2">
+                    <Image
+                      src={DEMOCRAT_LOGO}
+                      alt="Democratic Party"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                  <span>Vote Democrat</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+      )}
+
+      <p className="text-sm text-gray-600 mt-6 mb-8">
+        Required balance to vote: 100 USDC
+      </p>
+
+      <div className="flex justify-center mt-12">
+        <button
+          onClick={handleDisconnect}
+          className="px-8 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-lg"
+        >
+          Disconnect and Return Home
+        </button>
+      </div>
     </div>
-);
+  );
 };
-export default LotteryEntrance;
+
+export default BallotEntrance;
+
+
+
+
