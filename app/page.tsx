@@ -14,9 +14,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold mb-8">Blockchain-based Voting DApp</h1>
-
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-14 text-center pt-10">
+        <h1 className="text-5xl text-white font-bold mb-8">Blockchain-based Voting DApp</h1>
         
         <div className="mb-8 p-4 border-2 border-black rounded-lg bg-[#87CEEB] shadow-lg">
           <ConnectButton />
@@ -26,10 +25,10 @@ export default function Home() {
           <BallotEntrance />
         ) : (
           <div className="space-y-6">
-            <p className="text-xl mt-4">Please connect your wallet to participate in voting</p>
+            <p className="text-xl text-white pt-2 pb-8 mt-6">Please connect your wallet to participate in voting</p>
             
             <div className="flex justify-center gap-12 mt-8">
-              <div className="text-center">
+              <div className="text-center bg-[#f7f3e9] p-10 rounded-full shadow-lg">
                 <div className="relative w-32 h-32 mb-4">
                   <Image
                     src={REPUBLICAN_LOGO}
@@ -42,7 +41,7 @@ export default function Home() {
                 <p className="text-lg font-semibold text-red-600">Republican Party</p>
               </div>
 
-              <div className="text-center">
+              <div className="text-center bg-[#f7f3e9] p-10 rounded-full shadow-lg ">
                 <div className="relative w-32 h-32 mb-4">
                   <Image
                     src={DEMOCRAT_LOGO}
