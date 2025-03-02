@@ -37,29 +37,25 @@ const BallotEntrance: FC = () => {
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
     functionName: 'hasVoted',
-    args: address ? [address] : undefined,
-    enabled: !!address && mounted,
+    args: address ? [address] : undefined
   });
 
   const { data: votingEndTime, isLoading: isLoadingVotingEndTime } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
-    functionName: 'votingEndTime',
-    enabled: mounted,
+    functionName: 'votingEndTime'
   });
 
   const { data: votingFinalized, isLoading: isLoadingVotingFinalized } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
-    functionName: 'votingFinalized',
-    enabled: mounted,
+    functionName: 'votingFinalized'
   });
 
   const { data: requiredBalance, isLoading: isLoadingRequiredBalance } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
-    functionName: 'requiredBalance',
-    enabled: mounted,
+    functionName: 'requiredBalance'
   });
 
   // Write contract functions
@@ -146,8 +142,8 @@ const BallotEntrance: FC = () => {
   // Prevent hydration mismatch by showing a loading state initially
   if (!mounted) {
     return (
-      <div className="max-w-4xl mx-auto p-6 bg-amber-50 bg-opacity-90 rounded-lg shadow-lg border border-amber-200">
-      <h2 className="text-3xl font-bold mb-6 text-amber-900">Cast Your Vote</h2>
+      <div className="max-w-4xl mx-auto p-6 bg-white bg-opacity-90 rounded-lg shadow-md border border-slate-200">
+      <h2 className="text-3xl font-bold mb-6 text-slate-800">Cast Your Vote</h2>
         <div className="flex justify-center py-12">
           <ThreeDots color="#4B5563" height={50} width={50} />
         </div>
@@ -175,7 +171,7 @@ const BallotEntrance: FC = () => {
       )}
 
       {isLoadingHasVoted || isLoadingVotingFinalized ? (
-        <div className="bg-amber-100 p-6 rounded-lg mb-6 flex justify-center shadow-inner">
+        <div className="bg-gray-100 p-6 rounded-lg mb-6 flex justify-center shadow-inner">
           <ThreeDots color="#4B5563" height={40} width={40} />
         </div>
       ) : hasVoted ? (
@@ -244,7 +240,7 @@ const BallotEntrance: FC = () => {
         </div>
       )}
 
-      <p className="text-sm text-amber-800 mt-6 mb-8 border-t border-b border-amber-200 py-3">
+      <p className="text-sm text-slate-600 mt-6 mb-8 border-t border-b border-slate-200 py-3">
         Required balance to vote: {isLoadingRequiredBalance ? (
           <span className="inline-flex items-center"><ThreeDots color="#4B5563" height={12} width={24} /></span>
         ) : (

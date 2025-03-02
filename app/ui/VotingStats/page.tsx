@@ -15,18 +15,21 @@ const VotingStats: React.FC = () => {
     setMounted(true);
   }, []);
 
+  // Prevent fetching data on the server
+  const shouldFetch = typeof window !== 'undefined' && mounted;
+
   // Read voting results from contract
   const { data: votingResults, isLoading: isLoadingResults } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
-    functionName: 'getVotingResults',
+    functionName: 'getVotingResults'
   });
   
   // Read voting end time
   const { data: votingEndTime, isLoading: isLoadingEndTime } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
-    functionName: 'votingEndTime',
+    functionName: 'votingEndTime'
   });
 
   // Get total votes
