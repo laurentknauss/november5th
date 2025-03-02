@@ -52,7 +52,7 @@ const VotingStats: React.FC = () => {
   if (!mounted) {
     return (
       <div className="w-full max-w-4xl mx-auto font-[Inter]">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Current Voting Results</h2>
+        <h2 className="text-2xl font-bold text-amber-900 mb-6">Current Voting Results</h2>
         <div className="flex justify-center items-center py-8">
           <ThreeDots color="#4B5563" height={50} width={50} />
         </div>
@@ -63,17 +63,17 @@ const VotingStats: React.FC = () => {
   if (isLoadingResults || isLoadingEndTime) {
     return (
       <div className="flex justify-center items-center py-8">
-        <ThreeDots color="#ffffff" height={50} width={50} />
+        <ThreeDots color="#4B5563" height={50} width={50} />
       </div>
     );
   }
 
   return (
     <div className="w-full max-w-4xl mx-auto font-[Inter]">
-      <h2 className="text-2xl font-bold text-white mb-6">Current Voting Results</h2>
+      <h2 className="text-2xl font-bold text-amber-900 mb-6">Current Voting Results</h2>
       
       {/* Stats Component */}
-      <div className="stats stats-vertical lg:stats-horizontal shadow w-full bg-[#f8f4e3] text-gray-800 mb-8">
+      <div className="stats stats-vertical lg:stats-horizontal shadow w-full bg-amber-50 text-gray-800 mb-8">
         <div className="stat">
           <div className="stat-title font-medium">Total Votes</div>
           <div className="stat-value text-3xl font-semibold">{totalVotes}</div>
@@ -100,8 +100,8 @@ const VotingStats: React.FC = () => {
       </div>
       
       {/* Progress Indicators */}
-      <div className="grid grid-cols-1 gap-6 mb-8 bg-[#f8f4e3] p-6 rounded-lg shadow-inner">
-        <h3 className="text-xl font-bold text-gray-800 col-span-full mb-4">Vote Distribution</h3>
+      <div className="grid grid-cols-1 gap-6 mb-8 bg-amber-50 p-6 rounded-lg shadow-inner">
+        <h3 className="text-xl font-bold text-amber-900 col-span-full mb-4">Vote Distribution</h3>
         
         <div className="flex flex-col gap-2">
           <div className="flex justify-between items-center">
