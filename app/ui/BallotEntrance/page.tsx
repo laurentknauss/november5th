@@ -37,29 +37,25 @@ const BallotEntrance: FC = () => {
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
     functionName: 'hasVoted',
-    args: address ? [address] : undefined,
-    enabled: !!address && mounted,
+    args: address ? [address] : undefined
   });
 
   const { data: votingEndTime, isLoading: isLoadingVotingEndTime } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
-    functionName: 'votingEndTime',
-    enabled: mounted,
+    functionName: 'votingEndTime'
   });
 
   const { data: votingFinalized, isLoading: isLoadingVotingFinalized } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
-    functionName: 'votingFinalized',
-    enabled: mounted,
+    functionName: 'votingFinalized'
   });
 
   const { data: requiredBalance, isLoading: isLoadingRequiredBalance } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
-    functionName: 'requiredBalance',
-    enabled: mounted,
+    functionName: 'requiredBalance'
   });
 
   // Write contract functions
