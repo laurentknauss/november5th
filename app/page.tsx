@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import Header from './ui/Header/page';
 import { useAccount } from 'wagmi';
 import Image from 'next/image';
 import BallotEntrance from './ui/BallotEntrance/page';
@@ -15,11 +15,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <main className="flex flex-col items-center justify-center w-full flex-1 px-14 text-center pt-10">
-        <h1 className="text-5xl text-white font-bold mb-8 drop-shadow-lg">Blockchain-based Voting DApp</h1>
-        
-        <div className="mb-8 p-4 border-2 border-gray-700 rounded-lg bg-gray-900 bg-opacity-80 shadow-xl">
-          <ConnectButton />
-        </div>
+        <Header />
 
         {isConnected ? (
           <BallotEntrance />
