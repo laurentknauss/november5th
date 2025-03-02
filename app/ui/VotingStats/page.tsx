@@ -1,12 +1,20 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useReadContract } from 'wagmi';
 import { ThreeDots } from 'react-loader-spinner';
 import { abi } from '@/app/abi';
 import { contractAddresses } from '@/app/contractAddresses';
 
 const VotingStats: React.FC = () => {
+  // Client-side state to prevent hydration mismatch
+  const [mounted, setMounted] = useState(false);
+
+  // Only run after hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Read voting results from contract
   const { data: votingResults, isLoading: isLoadingResults } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
@@ -39,6 +47,18 @@ const VotingStats: React.FC = () => {
   const timeRemaining = votingEndTime ? Number(votingEndTime) * 1000 - Date.now() : 0;
   const daysRemaining = Math.max(0, Math.floor(timeRemaining / (1000 * 60 * 60 * 24)));
   const hoursRemaining = Math.max(0, Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+
+  // Prevent hydration mismatch by not rendering data on server
+  if (!mounted) {
+    return (
+      <div className="w-full max-w-4xl mx-auto font-[Inter]">
+        <h2 className="text-2xl font-bold text-white mb-6">Current Voting Results</h2>
+        <div className="flex justify-center items-center py-8">
+          <ThreeDots color="#ffffff" height={50} width={50} />
+        </div>
+      </div>
+    );
+  }
 
   if (isLoadingResults || isLoadingEndTime) {
     return (

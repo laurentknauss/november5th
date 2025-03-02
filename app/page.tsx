@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './ui/Header/page';
 import { useAccount } from 'wagmi';
 import Image from 'next/image';
@@ -11,13 +11,23 @@ const DEMOCRAT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02
 
 export default function Home() {
   const { isConnected } = useAccount();
+  const [mounted, setMounted] = useState(false);
+
+  // Only run after hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <div className="flex flex-col items-center min-h-screen py-0">
       <main className="flex flex-col items-center w-full flex-1 px-14 text-center pt-0">
         <Header />
 
-        {isConnected ? (
+        {!mounted ? (
+          <div className="flex justify-center items-center py-24">
+            <div className="animate-pulse bg-gray-300 opacity-20 w-64 h-64 rounded-full"></div>
+          </div>
+        ) : isConnected ? (
           <BallotEntrance />
         ) : (
           <div className="space-y-6">

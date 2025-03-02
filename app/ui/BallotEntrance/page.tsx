@@ -23,6 +23,14 @@ const BallotEntrance: FC = () => {
   const { isConnected, address } = useAccount();
   const [isTransacting, setIsTransacting] = useState(false);
   const [message, setMessage] = useState<MessageType>(null);
+  
+  // Client-side state to prevent hydration mismatch
+  const [mounted, setMounted] = useState(false);
+
+  // Only run after hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Read contract states
   const { data: hasVoted, isLoading: isLoadingHasVoted } = useReadContract({
@@ -30,25 +38,28 @@ const BallotEntrance: FC = () => {
     abi: abi,
     functionName: 'hasVoted',
     args: address ? [address] : undefined,
-    enabled: !!address,
+    enabled: !!address && mounted,
   });
 
   const { data: votingEndTime, isLoading: isLoadingVotingEndTime } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
     functionName: 'votingEndTime',
+    enabled: mounted,
   });
 
   const { data: votingFinalized, isLoading: isLoadingVotingFinalized } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
     functionName: 'votingFinalized',
+    enabled: mounted,
   });
 
   const { data: requiredBalance, isLoading: isLoadingRequiredBalance } = useReadContract({
     address: contractAddresses[421614][0] as `0x${string}`,
     abi: abi,
     functionName: 'requiredBalance',
+    enabled: mounted,
   });
 
   // Write contract functions
@@ -128,6 +139,18 @@ const BallotEntrance: FC = () => {
     return (
       <div className="text-center p-6">
         <p className="text-lg">Please connect your wallet to vote</p>
+      </div>
+    );
+  }
+
+  // Prevent hydration mismatch by showing a loading state initially
+  if (!mounted) {
+    return (
+      <div className="max-w-4xl mx-auto p-6 bg-gray-900 bg-opacity-70 rounded-lg shadow-xl border border-gray-700">
+        <h2 className="text-3xl font-bold mb-6 text-white">Cast Your Vote</h2>
+        <div className="flex justify-center py-12">
+          <ThreeDots color="#ffffff" height={50} width={50} />
+        </div>
       </div>
     );
   }
