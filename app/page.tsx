@@ -13,8 +13,8 @@ export default function Home() {
   const { isConnected } = useAccount();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-14 text-center pt-10">
+    <div className="flex flex-col items-center min-h-screen py-0">
+      <main className="flex flex-col items-center w-full flex-1 px-14 text-center pt-0">
         <Header />
 
         {isConnected ? (
