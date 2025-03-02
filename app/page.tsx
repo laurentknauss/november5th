@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Header from './ui/Header/page';
+import Footer from './ui/Footer/page';
 import { useAccount } from 'wagmi';
 import Image from 'next/image';
 import BallotEntrance from './ui/BallotEntrance/page';
@@ -63,6 +64,8 @@ export default function Home() {
           </div>
         )}
       </main>
+      
+      <Footer />
     </div>
   );
 }
