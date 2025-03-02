@@ -52,9 +52,9 @@ const VotingStats: React.FC = () => {
   if (!mounted) {
     return (
       <div className="w-full max-w-4xl mx-auto font-[Inter]">
-        <h2 className="text-2xl font-bold text-white mb-6">Current Voting Results</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">Current Voting Results</h2>
         <div className="flex justify-center items-center py-8">
-          <ThreeDots color="#ffffff" height={50} width={50} />
+          <ThreeDots color="#4B5563" height={50} width={50} />
         </div>
       </div>
     );

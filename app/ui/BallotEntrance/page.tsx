@@ -146,18 +146,18 @@ const BallotEntrance: FC = () => {
   // Prevent hydration mismatch by showing a loading state initially
   if (!mounted) {
     return (
-      <div className="max-w-4xl mx-auto p-6 bg-gray-900 bg-opacity-70 rounded-lg shadow-xl border border-gray-700">
-        <h2 className="text-3xl font-bold mb-6 text-white">Cast Your Vote</h2>
+      <div className="max-w-4xl mx-auto p-6 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-300">
+        <h2 className="text-3xl font-bold mb-6 text-gray-800">Cast Your Vote</h2>
         <div className="flex justify-center py-12">
-          <ThreeDots color="#ffffff" height={50} width={50} />
+          <ThreeDots color="#4B5563" height={50} width={50} />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-900 bg-opacity-70 rounded-lg shadow-xl border border-gray-700">
-      <h2 className="text-3xl font-bold mb-6 text-white">Cast Your Vote</h2>
+    <div className="max-w-4xl mx-auto p-6 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-300">
+      <h2 className="text-3xl font-bold mb-6 text-gray-800">Cast Your Vote</h2>
 
       {/* Voting Stats Section */}
       <section className="mb-8">
@@ -175,8 +175,8 @@ const BallotEntrance: FC = () => {
       )}
 
       {isLoadingHasVoted || isLoadingVotingFinalized ? (
-        <div className="bg-gray-800 p-6 rounded-lg mb-6 flex justify-center shadow-inner">
-          <ThreeDots color="#9CA3AF" height={40} width={40} />
+        <div className="bg-gray-200 p-6 rounded-lg mb-6 flex justify-center shadow-inner">
+          <ThreeDots color="#4B5563" height={40} width={40} />
         </div>
       ) : hasVoted ? (
         <div className="bg-blue-900 bg-opacity-60 p-6 rounded-lg mb-6 shadow-md border border-blue-800">
@@ -244,7 +244,7 @@ const BallotEntrance: FC = () => {
         </div>
       )}
 
-      <p className="text-sm text-gray-300 mt-6 mb-8 border-t border-b border-gray-700 py-3">
+      <p className="text-sm text-gray-600 mt-6 mb-8 border-t border-b border-gray-300 py-3">
         Required balance to vote: {isLoadingRequiredBalance ? (
           <span className="inline-flex items-center"><ThreeDots color="#4B5563" height={12} width={24} /></span>
         ) : (
