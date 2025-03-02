@@ -8,7 +8,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ 
-  title = "Blockchain-based Voting DApp" 
+  title = "Decentralized  Political Voting " 
 }) => {
   const [mounted, setMounted] = useState(false);
 
@@ -17,17 +17,17 @@ const Header: React.FC<HeaderProps> = ({
     setMounted(true);
   }, []);
   return (
-    <header className="w-full flex flex-col items-center pt-2 pb-4">
-      <h1 className="text-5xl text-amber-900 font-bold mb-4 drop-shadow-sm tracking-tight">
+    <header className="w-full flex flex-col items-center pt-8 pb-8">
+      <h1 className="text-5xl text-slate-800 font-bold mb-4 drop-shadow-sm tracking-tight">
         {title}
       </h1>
       
       {mounted ? (
-        <div className="mb-8 p-4 border-2 border-amber-200 rounded-lg bg-amber-50 bg-opacity-70 shadow-lg">
+        <div className="mb-8 pt-10 pb-2 bg-none ">
           <ConnectButton />
         </div>
       ) : (
-        <div className="mb-8 p-4 border-2 border-amber-200 rounded-lg bg-amber-50 bg-opacity-70 shadow-lg">
+        <div className="mb-8 p-4 border border-slate-200 rounded-lg bg-white bg-opacity-70 shadow-md">
           <div className="h-10 w-40 bg-gray-500 animate-pulse rounded-md"></div>
         </div>
       )}

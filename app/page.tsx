@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center min-h-screen py-0">
-      <div className="w-full bg-amber-800 text-white py-2 px-4 text-center font-bold">
+      <div className="w-full bg-zinc-800 text-red-500 py-2 px-6 text-center font-bold">
         DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity
       </div>
       <main className="flex flex-col items-center w-full flex-1 px-14 text-center pt-0">
@@ -35,7 +35,8 @@ export default function Home() {
           <BallotEntrance />
         ) : (
           <div className="space-y-6">
-            <p className="text-xl text-amber-900 pt-2 pb-8 mt-6 px-6 py-4 bg-amber-50 bg-opacity-90 rounded-lg shadow-lg border border-amber-200">Please connect your wallet to participate in the secure blockchain-based voting process</p>
+            <p className="text-xl text-zinc-800 pt-2 pb-8 mt-6 px-6 py-4 bg-none ">
+              Please connect your wallet to participate in the secure blockchain-based voting process</p>
             
             <div className="flex justify-center gap-12 mt-8">
               <div className="text-center bg-gray-100 p-10 rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 border-4 border-red-600">

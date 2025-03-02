@@ -1,0 +1,23 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/" # Root directory of the project
+    schedule:
+      interval: "weekly" # Check for updates once a week
+    ignore:
+      - dependency-name: "next"
+        versions: ["<14.2.21"] # Ignore updates below the minimum fixed version
+    allow:
+      - dependency-type: "direct" # Only update direct dependencies
+    labels:
+      - "dependencies"
+      - "security"
+  - package-ecosystem: "npm"
+    directory: "/" # Root directory for dev dependencies
+    schedule:
+      interval: "monthly" # Check for updates once a month
+    allow:
+      - dependency-type: "dev" # Only update dev dependencies
+    labels:
+      - "dev-dependencies"
+      - "maintenance"
