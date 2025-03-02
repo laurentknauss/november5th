@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Header from './ui/Header/page';
+import Header from './ui/Header/Header';
 import Footer from './ui/Footer/page';
 import { useAccount } from 'wagmi';
 import Image from 'next/image';
