@@ -49,39 +49,39 @@ const VotingStats: React.FC = () => {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto font-[Inter]">
       <h2 className="text-2xl font-bold text-white mb-6">Current Voting Results</h2>
       
       {/* Stats Component */}
-      <div className="stats stats-vertical lg:stats-horizontal shadow w-full bg-base-200 text-base-content mb-8">
+      <div className="stats stats-vertical lg:stats-horizontal shadow w-full bg-[#f8f4e3] text-gray-800 mb-8">
         <div className="stat">
-          <div className="stat-title">Total Votes</div>
-          <div className="stat-value text-3xl">{totalVotes}</div>
-          <div className="stat-desc">Votes cast so far</div>
+          <div className="stat-title font-medium">Total Votes</div>
+          <div className="stat-value text-3xl font-semibold">{totalVotes}</div>
+          <div className="stat-desc font-light">Votes cast so far</div>
         </div>
         
         <div className="stat">
-          <div className="stat-title">Republican</div>
-          <div className="stat-value text-red-500">{votingResults ? Number(votingResults[0]) : 0}</div>
-          <div className="stat-desc">Votes for Republican candidate</div>
+          <div className="stat-title font-medium">Republican</div>
+          <div className="stat-value text-red-500 font-semibold">{votingResults ? Number(votingResults[0]) : 0}</div>
+          <div className="stat-desc font-light">Votes for Republican candidate</div>
         </div>
         
         <div className="stat">
-          <div className="stat-title">Democrat</div>
-          <div className="stat-value text-blue-500">{votingResults ? Number(votingResults[1]) : 0}</div>
-          <div className="stat-desc">Votes for Democratic candidate</div>
+          <div className="stat-title font-medium">Democrat</div>
+          <div className="stat-value text-blue-500 font-semibold">{votingResults ? Number(votingResults[1]) : 0}</div>
+          <div className="stat-desc font-light">Votes for Democratic candidate</div>
         </div>
         
         <div className="stat">
-          <div className="stat-title">Time Remaining</div>
-          <div className="stat-value text-2xl">{daysRemaining}d {hoursRemaining}h</div>
-          <div className="stat-desc">Until voting closes</div>
+          <div className="stat-title font-medium">Time Remaining</div>
+          <div className="stat-value text-2xl font-semibold">{daysRemaining}d {hoursRemaining}h</div>
+          <div className="stat-desc font-light">Until voting closes</div>
         </div>
       </div>
       
       {/* Progress Indicators */}
-      <div className="grid grid-cols-1 gap-6 mb-8 bg-base-300 p-6 rounded-lg shadow-inner">
-        <h3 className="text-xl font-bold text-white col-span-full mb-4">Vote Distribution</h3>
+      <div className="grid grid-cols-1 gap-6 mb-8 bg-[#f8f4e3] p-6 rounded-lg shadow-inner">
+        <h3 className="text-xl font-bold text-gray-800 col-span-full mb-4">Vote Distribution</h3>
         
         <div className="flex flex-col gap-2">
           <div className="flex justify-between items-center">
