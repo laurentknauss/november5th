@@ -8,8 +8,8 @@ interface HeaderProps {
 }
 
 const Header = ({ 
-  title = "Decentralized Political Voting" 
-}: { title?: string } = {}) => {
+  title = "Blockchain-based Voting DApp"
+}: HeaderProps) => {
   const [mounted, setMounted] = useState(false);
 
   // Only run after hydration
