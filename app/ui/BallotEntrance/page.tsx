@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
 import { FC, useState, useEffect } from 'react';
 import { useWriteContract, useReadContract, useAccount, useWaitForTransactionReceipt, useDisconnect } from 'wagmi';
 import { ThreeDots } from 'react-loader-spinner';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import VotingStats from '../VotingStats/page';
 import { abi } from '@/app/abi';
 import { contractAddresses } from '@/app/contractAddresses';
 
@@ -135,6 +136,11 @@ const BallotEntrance: FC = () => {
     <div className="max-w-4xl mx-auto p-6 bg-gray-900 bg-opacity-70 rounded-lg shadow-xl border border-gray-700">
       <h2 className="text-3xl font-bold mb-6 text-white">Cast Your Vote</h2>
 
+      {/* Voting Stats Section */}
+      <section className="mb-8">
+        <VotingStats />
+      </section>
+
       {message && (
         <div className={`p-4 mb-4 rounded-lg shadow ${
           message.type === 'error' ? 'bg-red-100 text-red-700' :
@@ -236,7 +242,3 @@ const BallotEntrance: FC = () => {
 };
 
 export default BallotEntrance;
-
-
-
-
