@@ -7,9 +7,9 @@ interface HeaderProps {
   title?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ 
-  title = "Decentralized  Political Voting " 
-}) => {
+const Header = ({ 
+  title = "Decentralized Political Voting" 
+}: { title?: string } = {}) => {
   const [mounted, setMounted] = useState(false);
 
   // Only run after hydration
