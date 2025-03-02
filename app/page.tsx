@@ -21,6 +21,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center min-h-screen py-0">
+      <div className="w-full bg-yellow-600 text-black py-2 px-4 text-center font-bold">
+        DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity
+      </div>
       <main className="flex flex-col items-center w-full flex-1 px-14 text-center pt-0">
         <Header />
 

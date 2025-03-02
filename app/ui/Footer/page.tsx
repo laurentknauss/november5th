@@ -27,7 +27,7 @@ const Footer = () => {
             <div className="flex flex-col space-y-2 items-start">
               <h3 className="text-xl text-white font-bold mb-2">Blockchain Voting</h3>
               <p className="text-md text-zinc-300 text-left">
-                Decentralized voting platform <br/>Powered by Avalanche blockchain<br/>For secure and transparent voting<br/>For US elections.
+                Decentralized voting platform <br/>Powered by Avalanche blockchain<br/>For secure and transparent voting<br/><span className="text-yellow-400 font-semibold">Student project - Not affiliated with any government</span>
               </p>
             </div>
             
@@ -66,7 +66,7 @@ const Footer = () => {
           
           <div className="border-t border-zinc-700/50 mt-6 pt-6 flex flex-col items-center text-center">
             <p className="text-md text-zinc-400">
-              © {mounted ? new Date().getFullYear() : '2025'} Blockchain Voting
+              © {mounted ? new Date().getFullYear() : '2025'} Blockchain Voting - <span className="text-yellow-400">Educational Student Project</span>
             </p>
             <p className="text-md text-zinc-400 mt-2 md:mt-0">
               Crafted by{' '}
