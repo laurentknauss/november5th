@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({
   }, []);
   return (
     <header className="w-full flex flex-col items-center pt-2 pb-4">
-      <h1 className="text-5xl text-white font-bold mb-4 drop-shadow-lg">
+      <h1 className="text-5xl text-white font-bold mb-4 drop-shadow-lg tracking-tight">
         {title}
       </h1>
       

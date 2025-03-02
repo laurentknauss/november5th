@@ -16,14 +16,14 @@
 /* Base layer with font definitions */ 
 @layer base { 
   html { 
-    font-family: 'Righteous', cursive; 
+    font-family: 'Inter', sans-serif; 
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Righteous', cursive; 
+  font-family: 'Inter', sans-serif; 
   background-image: url('/american.png'); 
   background-repeat: repeat;
   background-size: 15%;
