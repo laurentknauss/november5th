@@ -7,10 +7,10 @@ interface DebtData {
   last_updated: string;
 }
 
-const formatTrillion = (amount: number): string => {
-  // Convert to trillions and format with 2 decimal places
-  const trillions = amount / 1_000_000_000_000;
-  return `$${trillions.toFixed(2)} Trillion`;
+const formatMillions = (amount: number): string => {
+  // Convert to millions and format with commas
+  const millions = amount / 1_000_000;
+  return `${millions.toLocaleString()} Million`;
 };
 
 const Trillions: React.FC = () => {
@@ -145,9 +145,9 @@ const Trillions: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
-      <h2 className="text-2xl font-bold text-white mb-4">US National Debt</h2>
+      <h2 className="text-2xl font-bold text-white mb-4">US National Debt in Millions</h2>
       <div className="text-5xl font-bold text-red-500 mb-4">
-        {currentDebt ? formatTrillion(currentDebt) : 'Loading...'}
+        {currentDebt ? formatMillions(currentDebt) : 'Loading...'}
       </div>
       <div className="text-sm text-gray-400">
         Last official update: {debtData?.last_updated ? new Date(debtData.last_updated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Unknown'}
