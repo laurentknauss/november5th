@@ -20,10 +20,10 @@ const Footer = () => {
   }, []);
   
   return (
-    <footer className={`${inter.className} w-full max-w-6xl mt-auto flex justify-center py-6`}>
+    <footer className={`${inter.className} w-full max-w-7xl mt-auto flex justify-center py-6`}>
       <div className="w-full px-4 md:px-8 lg:px-12">
-        <div className="rounded-lg bg-zinc-900/80 backdrop-blur-md border border-zinc-700/30 p-4 md:p-6 shadow-lg w-full max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="rounded-lg bg-zinc-900/80 backdrop-blur-md border border-zinc-700/30 p-6 md:p-8 shadow-lg w-full max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-4">
             {/* Left: Logo & About */}
             <div className="flex flex-col space-y-2 items-start">
               <h3 className="text-xl text-white font-bold mb-2">Blockchain Voting</h3>
