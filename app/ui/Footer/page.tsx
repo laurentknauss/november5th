@@ -28,7 +28,7 @@ const Footer = () => {
             <div className="flex flex-col space-y-2 items-start">
               <h3 className="text-lg text-white font-bold mb-1">Blockchain Voting</h3>
               <p className="text-sm text-zinc-300 text-left">
-                Decentralized voting platform <br/>Powered by Avalanche é Chainlink  <br/>For secure and transparent voting
+                Decentralized voting platform <br/>Powered by Avalanche & Chainlink  <br/>For secure and transparent voting
               </p>
             </div>
             
