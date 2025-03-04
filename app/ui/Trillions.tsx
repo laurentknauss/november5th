@@ -127,7 +127,7 @@ const Trillions: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
+      <div className="flex flex-col items-center justify-center py-4 px-4 text-center">
         <div className="animate-pulse w-64 h-12 bg-gray-300 rounded mb-2"></div>
         <div className="animate-pulse w-48 h-4 bg-gray-200 rounded"></div>
       </div>
@@ -144,9 +144,9 @@ const Trillions: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center py-8 px-4 text-center">
-      <h2 className="text-2xl font-bold text-white mb-4">US National Debt in Millions</h2>
-      <div className="text-5xl font-bold text-red-500 mb-4">
+    <div className="flex flex-col items-center justify-center py-4 px-4 text-center">
+      <h2 className="text-xl font-bold text-white mb-3">US National Debt in Millions</h2>
+      <div className="text-4xl font-bold text-red-500 mb-2">
         {currentDebt ? formatMillions(currentDebt) : 'Loading...'}
       </div>
       <div className="text-sm text-gray-400">
