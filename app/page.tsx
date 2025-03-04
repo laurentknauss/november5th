@@ -39,50 +39,54 @@ export default function Home() {
           <p className="text-xl text-gray-600 mb-8">
             Secure, transparent blockchain-based voting platform ensuring every vote counts.
           </p>
-          {!isConnected && (
-            <div className="w-full max-w-xs">
-              <ConnectButton />
-            </div>
-          )}
+          <div className="w-full max-w-xs">
+            <ConnectButton />
+          </div>
         </div>
 
         {/* Right side party selection */}
         <div className="w-1/2 p-16 flex flex-col justify-center space-y-8">
-          <div 
-            className="w-full h-64 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center 
-            hover:scale-105 transition-transform cursor-pointer group relative"
-          >
-            <div className="relative w-48 h-48">
-              <Image
-                src={REPUBLICAN_LOGO}
-                alt="Republican Party"
-                fill
-                className="object-contain group-hover:brightness-110 transition-all"
-                priority
-              />
-            </div>
-            <div className="absolute bottom-4 text-white font-bold">
-              Republican Party
-            </div>
-          </div>
+          {!mounted ? (
+            <div>Loading...</div>
+          ) : isConnected ? (
+            <BallotEntrance />
+          ) : (
+            <>
+              <div 
+                className="w-full h-64 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center relative"
+              >
+                <div className="relative w-48 h-48">
+                  <Image
+                    src={REPUBLICAN_LOGO}
+                    alt="Republican Party"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                <div className="absolute bottom-4 text-white font-bold">
+                  Republican Party
+                </div>
+              </div>
 
-          <div 
-            className="w-full h-64 rounded-2xl bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center 
-            hover:scale-105 transition-transform cursor-pointer group relative"
-          >
-            <div className="relative w-48 h-48">
-              <Image
-                src={DEMOCRAT_LOGO}
-                alt="Democratic Party"
-                fill
-                className="object-contain group-hover:brightness-110 transition-all"
-                priority
-              />
-            </div>
-            <div className="absolute bottom-4 text-white font-bold">
-              Democratic Party
-            </div>
-          </div>
+              <div 
+                className="w-full h-64 rounded-2xl bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center relative"
+              >
+                <div className="relative w-48 h-48">
+                  <Image
+                    src={DEMOCRAT_LOGO}
+                    alt="Democratic Party"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                <div className="absolute bottom-4 text-white font-bold">
+                  Democratic Party
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
       

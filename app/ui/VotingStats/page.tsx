@@ -47,7 +47,7 @@ const VotingStats: React.FC = () => {
 
     if (!mounted || isLoadingResults || isLoadingEndTime) {
         return (
-            <div className="w-full max-w-4xl mx-auto font-[Inter] flex justify-center items-center py-8">
+            <div className="w-full max-w-4xl mx-auto flex justify-center items-center py-8">
                 <ThreeDots color="#4B5563" height={50} width={50} />
             </div>
         );
@@ -66,7 +66,7 @@ const VotingStats: React.FC = () => {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto font-[Inter]">
+        <div className="w-full max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-amber-900 mb-6">Current Voting Results</h2>
 
             <div className="stats stats-vertical lg:stats-horizontal shadow w-full bg-amber-50 text-gray-800 mb-8">
