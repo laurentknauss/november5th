@@ -150,9 +150,9 @@ const Trillions: React.FC = () => {
         {currentDebt ? formatMillions(currentDebt) : 'Loading...'}
       </div>
       <div className="text-sm text-gray-400">
-        Last official update: {debtData?.last_updated ? new Date(debtData.last_updated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Unknown'}
+         {debtData?.last_updated ? new Date(debtData.last_updated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Unknown'}
       </div>
-      <div className="mt-2 text-xs text-gray-500">Real-time estimate based on U.S. Treasury data</div>
+      <div className="mt-2 text-sm text-gray-500">Real-time estimate based on U.S. Treasury data</div>
     </div>
   );
 };
