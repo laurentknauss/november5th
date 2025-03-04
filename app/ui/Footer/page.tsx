@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Inter } from 'next/font/google';
+import Trillions from '../Trillions';
 
 const inter = Inter({
   subsets: ['latin'], 
@@ -32,14 +33,9 @@ const Footer = () => {
               </p>
             </div>
             
-            {/* Center: Information */}
+            {/* Center: National Debt Tracker */}
             <div className="flex flex-col space-y-2 items-center justify-center">
-              <h3 className="text-lg text-white font-bold mb-2">Voting Platform</h3>
-              <p className="text-md text-zinc-300 text-center">
-                Cast your vote securely<br/>
-                Transparent and immutable<br/>
-                Real-time results
-              </p>
+              <Trillions />
             </div>
             
             {/* Right: Links */}
