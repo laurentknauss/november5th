@@ -25,7 +25,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <div className="w-full bg-zinc-800 text-red-500 py-2 px-6 text-center font-bold">
         DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity
       </div>
