@@ -32,15 +32,17 @@ export default function Home() {
 
       <div className="flex-grow flex">
         {/* Left side text section */}
-        <div className="w-1/2 p-16 flex flex-col justify-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+        <div className="w-1/2 p-16 flex flex-col items-center justify-center">
+          <h1 className="text-5xl font-bold text-gray-900 mb-6 text-center">
             The Most Reliable Way to Vote
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 mb-10 text-center">
             Secure, transparent blockchain-based voting platform ensuring every vote counts.
           </p>
-          <div className="w-full max-w-xs">
-            <ConnectButton />
+          <div className="flex justify-center w-full">
+            <div className="transform scale-125 backdrop-blur-sm bg-white/10 p-4 rounded-xl border border-gray-200/30 shadow-md">
+              <ConnectButton />
+            </div>
           </div>
         </div>
 
