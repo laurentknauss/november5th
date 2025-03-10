@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="bg-zinc-900/95 backdrop-blur-md border-t border-zinc-700/30 p-4 md:p-6 shadow-lg w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* Left: Logo & About */}
-            <div className="flex flex-col space-y-2 items-start">
+            <div className="flex flex-col space-y-2 items-start md:pl-8">
               <h3 className="text-lg text-white font-bold mb-1">Blockchain Voting</h3>
               <p className="text-sm text-zinc-300 text-left">
                 Decentralized voting platform <br/>Powered by Avalanche é Chainlink  <br/>For secure and transparent voting
@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
             
             {/* Right: Links */}
-            <div className="flex flex-col space-y-2 items-end">
+            <div className="flex flex-col space-y-2 items-end md:pr-8">
               <h3 className="text-lg text-white font-bold mb-1">Useful Links</h3>
               <ul className="text-sm space-y-1 text-right">
                 <li>
