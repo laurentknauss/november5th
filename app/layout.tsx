@@ -4,7 +4,7 @@ import { WagmiProvider } from 'wagmi';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { config } from '@/app/config';
-import { AuroraBackground } from '@/app/ui/AuroraBackground/page';
+import  AuroraBackground  from '@/app/ui/AuroraBackground/AuroraBackground';
 import '@rainbow-me/rainbowkit/styles.css';
 import './globals.css';
 

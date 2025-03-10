@@ -9,12 +9,12 @@ export interface AuroraBackgroundProps {
   showRadialGradient?: boolean;
 }
 
-export function AuroraBackground({
+const  AuroraBackground = ({
   children,
   className,
   showRadialGradient = true,
   ...props
-}: AuroraBackgroundProps & React.HTMLAttributes<HTMLDivElement>) {
+}: AuroraBackgroundProps & React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={cn(
@@ -60,3 +60,4 @@ export function AuroraBackground({
     </div>
   );
 }
+export default AuroraBackground;
