@@ -4,6 +4,7 @@ import { WagmiProvider } from 'wagmi';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { config } from '@/app/config';
+import  AuroraBackground  from '@/app/ui/AuroraBackground/AuroraBackground';
 import '@rainbow-me/rainbowkit/styles.css';
 import './globals.css';
 
@@ -16,12 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="h-full">
+      <body className="h-full">
         <WagmiProvider config={config}>
           <QueryClientProvider client={queryClient}>
             <RainbowKitProvider>
-              {children}
+              <AuroraBackground>
+                {children}
+              </AuroraBackground>
             </RainbowKitProvider>
           </QueryClientProvider>
         </WagmiProvider>
