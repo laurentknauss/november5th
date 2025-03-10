@@ -18,6 +18,42 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+
+      animation: {
+        aurora: "aurora 60s linear infinite",
+      },
+      keyframes: {
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
+      },
+      backgroundImage: {
+        'radial-gradient': 'radial-gradient(circle at center, rgba(var(--blue-500), 0.2) 0%, transparent 80%)',
+      },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     },
   },
   plugins: [addVariablesForColors], 

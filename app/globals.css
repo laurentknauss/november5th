@@ -3,29 +3,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-
-
-
 /* Second : Tailwind directives */ 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 /* Base layer with font definitions */ 
 @layer base { 
   html { 
     font-family: 'Inter', sans-serif; 
   }
+  
+  :root {
+    --background: 255, 255, 255;
+    --foreground: 0, 0, 0;
+  }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
   font-family: 'Inter', sans-serif; 
-  background: linear-gradient(135deg, #fffff0 0%, #f5f5dc 50%, #faebd7 100%);
-  background-attachment: fixed;
   position: relative;
   min-height: 100vh;
 }
