@@ -53,7 +53,7 @@ export default function Home() {
           ) : (
             <>
               <div 
-                className="w-full h-64 rounded-2xl bg-white/20 backdrop-blur-sm border border-gray-200/30 flex items-center justify-center relative shadow-lg"
+                className="w-full h-64 rounded-2xl bg-white/20 backdrop-blur-sm border-2 border-red-500/40 flex items-center justify-center relative shadow-lg"
               >
                 <div className="relative w-48 h-48">
                   <Image
@@ -70,7 +70,7 @@ export default function Home() {
               </div>
 
               <div 
-                className="w-full h-64 rounded-2xl bg-white/20 backdrop-blur-sm border border-gray-200/30 flex items-center justify-center relative shadow-lg"
+                className="w-full h-64 rounded-2xl bg-white/20 backdrop-blur-sm border-2 border-blue-500/40 flex items-center justify-center relative shadow-lg"
               >
                 <div className="relative w-48 h-48">
                   <Image
