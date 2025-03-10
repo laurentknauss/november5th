@@ -53,7 +53,7 @@ export default function Home() {
           ) : (
             <>
               <div 
-                className="w-full h-64 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center relative"
+                className="w-full h-64 rounded-2xl bg-white/20 backdrop-blur-sm border border-gray-200/30 flex items-center justify-center relative shadow-lg"
               >
                 <div className="relative w-48 h-48">
                   <Image
@@ -64,13 +64,13 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <div className="absolute bottom-4 text-white font-bold">
+                <div className="absolute bottom-4 text-white font-bold drop-shadow-md">
                   Republican Party
                 </div>
               </div>
 
               <div 
-                className="w-full h-64 rounded-2xl bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center relative"
+                className="w-full h-64 rounded-2xl bg-white/20 backdrop-blur-sm border border-gray-200/30 flex items-center justify-center relative shadow-lg"
               >
                 <div className="relative w-48 h-48">
                   <Image
@@ -81,7 +81,7 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <div className="absolute bottom-4 text-white font-bold">
+                <div className="absolute bottom-4 text-white font-bold drop-shadow-md">
                   Democratic Party
                 </div>
               </div>
