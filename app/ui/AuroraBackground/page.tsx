@@ -23,11 +23,11 @@ export function AuroraBackground({
       )}
       {...props}
     >
-      {/* USA flag-inspired aurora background */}
+      {/* USA flag-inspired aurora background with more red */}
       <div
         className="fixed inset-0 z-[-1]"
         style={{
-          background: "radial-gradient(circle at center, rgba(255, 0, 0, 0.5) 0%, rgba(0, 0, 255, 0.5) 40%, rgba(255, 255, 255, 0.5) 80%, transparent 100%), linear-gradient(180deg, rgba(0, 40, 104, 0.2) 0%, rgba(178, 34, 52, 0.3) 50%, rgba(255, 255, 255, 0.2) 100%)",
+          background: "radial-gradient(circle at center, rgba(178, 34, 52, 0.7) 0%, rgba(178, 34, 52, 0.6) 20%, rgba(0, 40, 104, 0.4) 50%, rgba(255, 255, 255, 0.3) 80%, transparent 100%), linear-gradient(180deg, rgba(178, 34, 52, 0.4) 0%, rgba(178, 34, 52, 0.5) 30%, rgba(0, 40, 104, 0.3) 70%, rgba(255, 255, 255, 0.2) 100%)",
           maskImage: "radial-gradient(ellipse at center, transparent 20%, black 100%)",
           WebkitMaskImage: "radial-gradient(ellipse at center, transparent 20%, black 100%)"
         }}
@@ -44,11 +44,11 @@ export function AuroraBackground({
         ></div>
       )}
       
-      {/* Animated aurora */}
+      {/* Animated aurora with more red dominance */}
       <div 
         className="fixed inset-0 z-[-1] animate-aurora"
         style={{
-          background: "radial-gradient(circle at center, rgba(178, 34, 52, 0.6) 0%, rgba(0, 40, 104, 0.6) 40%, rgba(255, 255, 255, 0.4) 80%, transparent 100%)",
+          background: "radial-gradient(circle at center, rgba(178, 34, 52, 0.7) 0%, rgba(178, 34, 52, 0.6) 30%, rgba(0, 40, 104, 0.5) 60%, rgba(255, 255, 255, 0.3) 85%, transparent 100%)",
           backgroundSize: "200% 200%"
         }}
       ></div>
