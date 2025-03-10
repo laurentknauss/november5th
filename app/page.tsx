@@ -30,24 +30,24 @@ export default function Home() {
         DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity
       </div>
 
-      <div className="flex-grow flex">
+      <div className="flex-grow flex flex-col md:flex-row">
         {/* Left side text section */}
-        <div className="w-1/2 p-16 flex flex-col items-center justify-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6 text-center">
+        <div className="w-full md:w-1/2 p-6 md:p-16 flex flex-col items-center justify-center">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
             The Most Reliable Way to Vote
           </h1>
-          <p className="text-xl text-gray-600 mb-10 text-center">
+          <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-10 text-center px-4">
             Secure, transparent blockchain-based voting platform ensuring every vote counts.
           </p>
           <div className="flex justify-center w-full">
-            <div className="transform scale-125 backdrop-blur-sm bg-white/10 p-4 rounded-xl border border-gray-200/30 shadow-md">
+            <div className="transform scale-110 md:scale-125 backdrop-blur-sm bg-white/10 p-4 rounded-xl border border-gray-200/30 shadow-md">
               <ConnectButton />
             </div>
           </div>
         </div>
 
         {/* Right side party selection */}
-        <div className="w-1/2 p-16 flex flex-col justify-center space-y-8">
+        <div className="w-full md:w-1/2 p-6 md:p-16 flex flex-col justify-center space-y-6 md:space-y-8 mt-8 md:mt-0">
           {!mounted ? (
             <div>Loading...</div>
           ) : isConnected ? (
@@ -55,9 +55,9 @@ export default function Home() {
           ) : (
             <>
               <div 
-                className="w-full h-64 rounded-2xl bg-white/20 backdrop-blur-sm border-2 border-red-500/40 flex items-center justify-center relative shadow-lg"
+                className="w-full h-48 md:h-64 rounded-2xl bg-white/20 backdrop-blur-sm border-2 border-red-500/40 flex items-center justify-center relative shadow-lg"
               >
-                <div className="relative w-48 h-48">
+                <div className="relative w-32 h-32 md:w-48 md:h-48">
                   <Image
                     src={REPUBLICAN_LOGO}
                     alt="Republican Party"
@@ -66,15 +66,15 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <div className="absolute bottom-4 text-white font-bold drop-shadow-md">
+                <div className="absolute bottom-4 text-white font-bold drop-shadow-md text-sm md:text-base">
                   Republican Party
                 </div>
               </div>
 
               <div 
-                className="w-full h-64 rounded-2xl bg-white/20 backdrop-blur-sm border-2 border-blue-500/40 flex items-center justify-center relative shadow-lg"
+                className="w-full h-48 md:h-64 rounded-2xl bg-white/20 backdrop-blur-sm border-2 border-blue-500/40 flex items-center justify-center relative shadow-lg"
               >
-                <div className="relative w-48 h-48">
+                <div className="relative w-32 h-32 md:w-48 md:h-48">
                   <Image
                     src={DEMOCRAT_LOGO}
                     alt="Democratic Party"
@@ -83,7 +83,7 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <div className="absolute bottom-4 text-white font-bold drop-shadow-md">
+                <div className="absolute bottom-4 text-white font-bold drop-shadow-md text-sm md:text-base">
                   Democratic Party
                 </div>
               </div>
