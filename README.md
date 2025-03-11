@@ -4,12 +4,12 @@
 November 5th is a decentralized voting application built with Next.js and blockchain technology. It provides a secure and transparent platform for conducting elections, featuring both Democratic 🔵 and Republican 🔴 voting options.
 
 ## 🛠️ Technologies Used
-- ⚡ Next.js 14
-- ⚛️ React 18
+- ⚡ Next.js 15
+- ⚛️ React 19
 - 🌈 RainbowKit
 - 🔗 Wagmi
 - 💅 TailwindCSS
-- 🎨 DaisyUI
+- 🎨 Ui.aceternity
 - 📘 TypeScript
 
 ## 📋 Prerequisites
@@ -21,8 +21,8 @@ November 5th is a decentralized voting application built with Next.js and blockc
 
 1. 📥 Clone the repository
 2. 📂 cd november5th
-3. 🛠️ yarn build
-4. 🏃‍♂️ yarn run dev 
+3. 🛠️ pnpm build
+4. 🏃‍♂️ pnpm dev 
 
 ## 🔒 Security Features
 - ✅ Secure blockchain voting
