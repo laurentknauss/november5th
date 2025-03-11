@@ -79,7 +79,10 @@ export const SparklesCore = ({
                 enable: false,
                 mode: "repulse"
               },
-              resize: true
+              resize: {
+                enable: true, 
+                
+              }
             },
             modes: {
               push: {
@@ -123,7 +126,7 @@ export const SparklesCore = ({
               animation: {
                 enable: true,
                 speed: 1,
-                minimumValue: 0.1
+              
               }
             },
             shape: {
