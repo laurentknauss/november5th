@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Header from './ui/Header/Header';
+import { Cover } from './ui/Cover';
 import Footer from './ui/Footer/Footer';
 import { useAccount } from 'wagmi';
 import dynamic from 'next/dynamic';
@@ -30,7 +30,7 @@ export default function Home() {
         DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity
       </div>
 
-      <div className="flex-grow flex flex-col md:flex-row">
+      <Cover>
         {/* Left side text section */}
         <div className="w-full md:w-1/2 p-6 md:p-16 flex flex-col items-center justify-center">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
@@ -90,7 +90,7 @@ export default function Home() {
             </>
           )}
         </div>
-      </div>
+      </Cover>
       
       <Footer />
     </div>
