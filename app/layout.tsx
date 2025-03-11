@@ -1,5 +1,6 @@
 'use client';
 
+import type { Metadata } from 'next'; 
 import { WagmiProvider } from 'wagmi';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -11,6 +12,11 @@ import './globals.css';
 
 // Create a client
 const queryClient = new QueryClient();
+
+export const metadata: Metadata = { 
+  title : 'Presidential voting app',
+  description:  'A blockchain-based secure political app ',
+}
 
 export default function RootLayout({
   children,
