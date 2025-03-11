@@ -13,7 +13,7 @@ import './globals.css';
 // Create a client
 const queryClient = new QueryClient();
 
-export const metadata: Metadata = { 
+ const metadata: Metadata = { 
   title : 'Presidential voting app',
   description:  'A blockchain-based secure political app ',
 }
