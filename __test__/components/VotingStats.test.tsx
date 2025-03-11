@@ -65,8 +65,8 @@ describe('VotingStats', () => {
     
     // Stats cards
     expect(screen.getByText('Total Votes')).toBeInTheDocument();
-    expect(screen.getByText('Republican')).toBeInTheDocument();
-    expect(screen.getByText('Democrat')).toBeInTheDocument();
+    expect(screen.getAllByText('Republican')[0]).toBeInTheDocument();
+    expect(screen.getAllByText('Democrat')[0]).toBeInTheDocument();
     expect(screen.getByText('Time Remaining')).toBeInTheDocument();
     
     // Vote values

@@ -1,5 +1,9 @@
 // Create a basic React implementation
 import React from 'react';
+
+// Import the necessary testing libraries
+import '@testing-library/jest-dom';
+
 // Mock motion/react
 jest.mock('motion/react', () => ({
   AnimatePresence: function AnimatePresence({ children }) { return children; },
@@ -8,6 +12,7 @@ jest.mock('motion/react', () => ({
     span: function MotionSpan(props) { return React.createElement('span', props, props.children); }
   }
 }));
+
 // Mock next/font/google
 jest.mock('next/font/google', () => ({
   Inter: jest.fn().mockReturnValue({
@@ -20,8 +25,20 @@ jest.mock('next/font/google', () => ({
   }),
 }));
 
-// Import the necessary testing libraries
-import '@testing-library/jest-dom';
+// Mock Next.js image component
+jest.mock('next/image', () => ({
+  __esModule: true,
+  default: function MockImage(props) {
+    return React.createElement('img', {
+      src: props.src || '',
+      alt: props.alt || '',
+      className: props.className || '',
+      'data-testid': 'mock-image',
+      fill: props.fill,
+      priority: props.priority
+    });
+  }
+}));
 
 // Mock Next.js router
 jest.mock('next/navigation', () => ({
@@ -60,20 +77,6 @@ jest.mock('next/router', () => ({
   }),
 }));
 
-
-// Mock Next.js image component
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: function MockImage(props) {
-     
-    return Object.assign(document.createElement('img'), { 
-      src: props.src || '',
-      alt: props.alt || '',
-      className: props.className || '',
-    });
-  },
-}));
-
 // Mock the environment variables
 process.env = {
   ...process.env,
@@ -104,12 +107,12 @@ jest.mock('wagmi', () => ({
 }));
 
 jest.mock('@rainbow-me/rainbowkit', () => ({
-  ConnectButton: jest.fn().mockReturnValue(document.createElement('div')),
+  ConnectButton: jest.fn().mockImplementation(() => React.createElement('div', {'data-testid': 'connect-button'}, 'Connect Button')),
   RainbowKitProvider: jest.fn().mockImplementation(({ children }) => children),
 }));
 
 jest.mock('react-loader-spinner', () => ({
-  ThreeDots: jest.fn().mockReturnValue(document.createElement('div')),
+  ThreeDots: jest.fn().mockImplementation(props => React.createElement('div', {'data-testid': 'three-dots-loader'}, 'Loading...' )),
 }));
 
 // Mock contract data
@@ -129,7 +132,8 @@ beforeAll(() => {
   console.error = (...args) => {
     if (
       /Warning: ReactDOM.render is no longer supported in React 18/.test(args[0]) ||
-      /Warning: useLayoutEffect does nothing on the server/.test(args[0])
+      /Warning: useLayoutEffect does nothing on the server/.test(args[0]) ||
+      /Warning: React does not recognize the/.test(args[0])
     ) {
       return;
     }
