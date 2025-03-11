@@ -1,9 +1,9 @@
 // Import the necessary testing libraries
 import '@testing-library/jest-dom';
 
-// Mock Next.js router (new App Router)
+// Mock Next.js router
 jest.mock('next/navigation', () => ({
-  useRouter: () => ({
+  useRouter: jest.fn().mockReturnValue({
     push: jest.fn(),
     replace: jest.fn(),
     prefetch: jest.fn(),
@@ -12,17 +12,17 @@ jest.mock('next/navigation', () => ({
     forward: jest.fn(),
     pathname: '/',
   }),
-  useSearchParams: () => ({
+  useSearchParams: jest.fn().mockReturnValue({
     get: jest.fn().mockImplementation(key => null),
     getAll: jest.fn().mockImplementation(key => []),
     has: jest.fn().mockImplementation(key => false),
   }),
-  usePathname: () => '/',
+  usePathname: jest.fn().mockReturnValue('/'),
 }));
 
 // Also mock old Next.js router for backwards compatibility
 jest.mock('next/router', () => ({
-  useRouter: () => ({
+  useRouter: jest.fn().mockReturnValue({
     push: jest.fn(),
     replace: jest.fn(),
     prefetch: jest.fn(),
@@ -82,12 +82,12 @@ jest.mock('wagmi', () => ({
 }));
 
 jest.mock('@rainbow-me/rainbowkit', () => ({
-  ConnectButton: jest.fn().mockImplementation(() => <div data-testid="connect-button">Connect Button</div>),
+  ConnectButton: jest.fn().mockReturnValue(document.createElement('div')),
   RainbowKitProvider: jest.fn().mockImplementation(({ children }) => children),
 }));
 
 jest.mock('react-loader-spinner', () => ({
-  ThreeDots: jest.fn().mockImplementation(() => <div data-testid="three-dots-loader">Loading...</div>),
+  ThreeDots: jest.fn().mockReturnValue(document.createElement('div')),
 }));
 
 // Mock contract data

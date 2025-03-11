@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Header from '@/app/ui/Header/Header';
+import Header from '../components/HeaderMock';
 
 // The ConnectButton from rainbow-kit is already mocked in jest.setup.js
 

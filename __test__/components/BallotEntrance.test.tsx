@@ -96,10 +96,10 @@ describe('BallotEntrance', () => {
 
   beforeEach(() => {
     // Mock the router's push method
-    const useRouter = jest.requireMock('next/navigation').useRouter;
-    useRouter.mockImplementation(() => ({
+    const mockPush = jest.fn();
+    jest.requireMock('next/navigation').useRouter.mockReturnValue({
       push: mockPush,
-    }));
+    });
     
     // Reset mocks before each test
     jest.clearAllMocks();
