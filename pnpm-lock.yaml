@@ -15,7 +15,7 @@ importers:
         specifier: ^1.8.1
         version: 1.8.1
       '@rainbow-me/rainbowkit':
-        specifier: ^2.0.0
+        specifier: ^2.2.4
         version: 2.2.4(@tanstack/react-query@5.67.2(react@19.0.0-rc-66855b96-20241106))(@types/react@18.3.18)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(viem@2.23.9(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10))(wagmi@2.14.12(@tanstack/query-core@5.67.2)(@tanstack/react-query@5.67.2(react@19.0.0-rc-66855b96-20241106))(@types/react@18.3.18)(bufferutil@4.0.9)(encoding@0.1.13)(react@19.0.0-rc-66855b96-20241106)(typescript@5.8.2)(utf-8-validate@5.0.10)(viem@2.23.9(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)))
       '@tanstack/react-query':
         specifier: ^5.0.0
