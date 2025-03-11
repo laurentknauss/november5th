@@ -1,130 +1,144 @@
-'use client';
+"use client"
+import { useId } from "react"
+import { useEffect, useState } from "react"
+import Particles, { initParticlesEngine } from "@tsparticles/react"
+import type { Container, SingleOrMultiple } from "@tsparticles/engine"
+import { loadSlim } from "@tsparticles/slim"
+import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 
-import React, { useEffect, useRef, useState } from 'react';
-import { cn } from '@/app/lib/utils';
-
-export interface SparklesProps {
-  id?: string;
-  className?: string;
-  background?: boolean;
-  minSize?: number;
-  maxSize?: number;
-  speed?: number;
-  count?: number;
-  particleColor?: string;
+type ParticlesProps = {
+  id?: string
+  className?: string
+  background?: string
+  particleSize?: number
+  minSize?: number
+  maxSize?: number
+  speed?: number
+  particleColor?: string
+  particleDensity?: number
 }
 
 export const SparklesCore = ({
   id,
   className,
-  background = false,
+  background,
   minSize = 1,
-  maxSize = 2,
-  speed = 0.5,
-  count = 50,
-  particleColor = '#FFFFFF',
-}: SparklesProps) => {
-  const [isClient, setIsClient] = useState(false);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
+  maxSize = 3,
+  speed = 1,
+  particleColor = "#ffffff",
+  particleDensity = 120
+}: ParticlesProps) => {
+  const [init, setInit] = useState(false)
+  
   useEffect(() => {
-    setIsClient(true);
-  }, []);
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine)
+    }).then(() => {
+      setInit(true)
+    })
+  }, [])
 
-  useEffect(() => {
-    if (!isClient || !canvasRef.current) return;
-    
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    let particles: {
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-    }[] = [];
-    
-    const createParticle = () => {
-      particles = [];
-      const seededRandom = (seed: number) => {
-        const x = Math.sin(seed) * 10000;
-        return x - Math.floor(x);
-      };
-      
-      for (let i = 0; i < count; i++) {
-        const seed = i * 1000;
-        particles.push({
-          x: seededRandom(seed) * canvas.width,
-          y: seededRandom(seed + 1) * canvas.height,
-          size: seededRandom(seed + 2) * (maxSize - minSize) + minSize,
-          speedX: (seededRandom(seed + 3) - 0.5) * speed,
-          speedY: (seededRandom(seed + 4) - 0.5) * speed,
-        });
-      }
-    };
-    
-    createParticle();
-    
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Draw particles
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        ctx.fillStyle = particleColor;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Update position
-        p.x += p.speedX;
-        p.y += p.speedY;
-        
-        // Wrap around edges
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-      }
-      
-      requestAnimationFrame(animate);
-    };
-    
-    animate();
-    
-    const handleResize = () => {
-      if (canvasRef.current) {
-        canvasRef.current.width = window.innerWidth;
-        canvasRef.current.height = window.innerHeight;
-        createParticle();
-      }
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    return () => {
-      particles = [];
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [isClient, particleColor, count, minSize, maxSize, speed]);
+  const particlesLoaded = async (container?: Container) => {
+    console.log("Particles container loaded", container)
+  }
 
-  // Render nothing on server, canvas on client
-  if (!isClient) return null;
+  const generatedId = useId()
+
+  if (!init) return null
 
   return (
-    <canvas
-      ref={canvasRef}
-      id={id}
-      className={cn(
-        'absolute inset-0 z-[-1]',
-        className,
-        background ? 'bg-black' : 'bg-transparent'
-      )}
-    />
-  );
-};
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className={cn("relative", className)}
+    >
+      <Particles
+        id={id || generatedId}
+        className="absolute inset-0 z-0"
+        particlesLoaded={particlesLoaded}
+        options={{
+          background: {
+            color: {
+              value: background || "transparent"
+            }
+          },
+          fullScreen: {
+            enable: false,
+            zIndex: 1
+          },
+          fpsLimit: 120,
+          interactivity: {
+            events: {
+              onClick: {
+                enable: true,
+                mode: "push"
+              },
+              onHover: {
+                enable: false,
+                mode: "repulse"
+              },
+              resize: true
+            },
+            modes: {
+              push: {
+                quantity: 4
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4
+              }
+            }
+          },
+          particles: {
+            color: {
+              value: particleColor
+            },
+            move: {
+              direction: "none",
+              enable: true,
+              outModes: {
+                default: "out"
+              },
+              random: false,
+              speed: {
+                min: 0.1,
+                max: speed
+              }
+            },
+            number: {
+              density: {
+                enable: true,
+                width: 400,
+                height: 400
+              },
+              value: particleDensity
+            },
+            opacity: {
+              value: {
+                min: 0.1,
+                max: 1
+              },
+              animation: {
+                enable: true,
+                speed: 1,
+                minimumValue: 0.1
+              }
+            },
+            shape: {
+              type: "circle"
+            },
+            size: {
+              value: {
+                min: minSize,
+                max: maxSize
+              }
+            }
+          },
+          detectRetina: true
+        }}
+      />
+    </motion.div>
+  )
+}
