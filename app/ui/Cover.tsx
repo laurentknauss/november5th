@@ -10,8 +10,8 @@ interface CoverProps {
 
 export function Cover({ children, className }: CoverProps) {
   return (
-    <div className={cn('flex flex-grow flex-col md:flex-row', className)}>
+    <span className={cn('', className)}>
       {children}
-    </div>
+    </span>
   );
 }
