@@ -5,7 +5,7 @@ import { useWriteContract, useReadContract, useAccount, useWaitForTransactionRec
 import { ThreeDots } from 'react-loader-spinner';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import VotingStats from '../VotingStats/page';
+import VotingStats from '../VotingStats/VotingStats';
 import { abi } from '@/app/abi';
 import { contractAddresses } from '@/app/contractAddresses';
 

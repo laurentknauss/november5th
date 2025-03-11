@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Header from './ui/Header/Header';
-import Footer from './ui/Footer/page';
+import Footer from './ui/Footer/Footer';
 import { useAccount } from 'wagmi';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import BallotEntrance from './ui/BallotEntrance/page';
+import BallotEntrance from './ui/BallotEntrance/BallotEntrance';
 
 const ConnectButton = dynamic(
   () => import('@rainbow-me/rainbowkit').then((mod) => mod.ConnectButton),
