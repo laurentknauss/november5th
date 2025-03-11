@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import AuroraBackground from '@/app/ui/AuroraBackground/AuroraBackground';
 
 describe('AuroraBackground', () => {

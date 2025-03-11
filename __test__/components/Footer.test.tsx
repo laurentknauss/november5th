@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Footer from '@/app/ui/Footer/Footer';
 
 // Mock the Trillions component

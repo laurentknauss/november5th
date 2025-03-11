@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { useReadContract } from 'wagmi';
 import VotingStats from '@/app/ui/VotingStats/VotingStats';
 
