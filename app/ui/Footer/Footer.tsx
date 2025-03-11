@@ -62,7 +62,7 @@ const Footer = () => {
           
           <div className="border-t border-zinc-700/50 mt-4 pt-4 flex flex-col items-center text-center max-w-7xl mx-auto">
             <p className="text-sm text-zinc-400">
-              © {mounted ? new Date().getFullYear() : '2025'} Blockchain Voting - <span className="text-red-500">Educational Student Project</span>
+              © {mounted ? new Date().getFullYear() : '2025'} Blockchain Voting - <span className="text-red-500">Independent Project</span>
             </p>
             <p className="text-sm text-zinc-400 mt-1 md:mt-0">
               Crafted by{' '}
