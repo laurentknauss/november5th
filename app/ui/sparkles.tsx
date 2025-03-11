@@ -24,33 +24,22 @@ export const SparklesCore = ({
   count = 50,
   particleColor = '#FFFFFF',
 }: SparklesProps) => {
-  const [windowDimensions, setWindowDimensions] = useState<{ width: number; height: number }>({
-    width: 0,
-    height: 0,
-  });
+  const [isClient, setIsClient] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    setIsClient(true);
   }, []);
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    if (!isClient || !canvasRef.current) return;
     
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
-    canvas.width = windowDimensions.width;
-    canvas.height = windowDimensions.height;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     
     let particles: {
       x: number;
@@ -62,13 +51,19 @@ export const SparklesCore = ({
     
     const createParticle = () => {
       particles = [];
+      const seededRandom = (seed: number) => {
+        const x = Math.sin(seed) * 10000;
+        return x - Math.floor(x);
+      };
+      
       for (let i = 0; i < count; i++) {
+        const seed = i * 1000;
         particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * (maxSize - minSize) + minSize,
-          speedX: (Math.random() - 0.5) * speed,
-          speedY: (Math.random() - 0.5) * speed,
+          x: seededRandom(seed) * canvas.width,
+          y: seededRandom(seed + 1) * canvas.height,
+          size: seededRandom(seed + 2) * (maxSize - minSize) + minSize,
+          speedX: (seededRandom(seed + 3) - 0.5) * speed,
+          speedY: (seededRandom(seed + 4) - 0.5) * speed,
         });
       }
     };
@@ -102,10 +97,24 @@ export const SparklesCore = ({
     
     animate();
     
+    const handleResize = () => {
+      if (canvasRef.current) {
+        canvasRef.current.width = window.innerWidth;
+        canvasRef.current.height = window.innerHeight;
+        createParticle();
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
     return () => {
       particles = [];
+      window.removeEventListener('resize', handleResize);
     };
-  }, [windowDimensions, particleColor, count, minSize, maxSize, speed]);
+  }, [isClient, particleColor, count, minSize, maxSize, speed]);
+
+  // Render nothing on server, canvas on client
+  if (!isClient) return null;
 
   return (
     <canvas
