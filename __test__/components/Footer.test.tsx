@@ -14,7 +14,7 @@ describe('Footer', () => {
   beforeEach(() => {
     // Mock the Date constructor to return a fixed date
     const mockDate = new Date('2025-03-11T12:00:00Z');
-    jest.spyOn(global, 'Date').mockImplementation(() => mockDate as unknown as string);
+    jest.spyOn(global, 'Date').mockImplementation(() => mockDate as unknown as Date);
   });
 
   afterEach(() => {
