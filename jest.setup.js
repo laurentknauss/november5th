@@ -1,3 +1,25 @@
+// Create a basic React implementation
+import React from 'react';
+// Mock motion/react
+jest.mock('motion/react', () => ({
+  AnimatePresence: ({ children }) => children,
+  motion: {
+    div: (props) => <div {...props}>{props.children}</div>,
+    span: (props) => <span {...props}>{props.children}</span>,
+  },
+}));
+// Mock next/font/google
+jest.mock('next/font/google', () => ({
+  Inter: jest.fn().mockReturnValue({
+    className: 'mocked-font',
+    style: { fontFamily: 'sans-serif' },
+    subsets: ['latin'],
+    weight: ['500', '800'],
+    display: 'swap',
+    preload: true,
+  }),
+}));
+
 // Import the necessary testing libraries
 import '@testing-library/jest-dom';
 

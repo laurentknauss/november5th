@@ -3,12 +3,13 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Footer from '@/app/ui/Footer/Footer';
 
-// Mock the Trillions component
+// Mock the Trillions component in a way compatible with React 19
 jest.mock('@/app/ui/Trillions', () => {
-  return function MockedTrillions() {
+  return function MockTrillions() {
     return <div data-testid="trillions-component">Trillions Component</div>;
   };
 });
+
 
 describe('Footer', () => {
   beforeEach(() => {

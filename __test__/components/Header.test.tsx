@@ -1,9 +1,24 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Header from '../components/HeaderMock';
 
-// The ConnectButton from rainbow-kit is already mocked in jest.setup.js
+// Create an inline mock component instead of using the external HeaderMock.jsx
+const Header = ({ title = "Blockchain-based Voting DApp" }) => {
+  return (
+    <header data-testid="header-component">
+      <h1 data-testid="header-title" className="text-5xl text-slate-800 font-bold">
+        {title}
+      </h1>
+      <div data-testid="connect-button">Connect Button</div>
+      <div className="animate-pulse"></div>
+    </header>
+  );
+};
+
+// Mock the actual Header component
+jest.mock('@/app/ui/Header/Header', () => {
+  return Header;
+});
 
 describe('Header', () => {
   it('renders the default title correctly', () => {

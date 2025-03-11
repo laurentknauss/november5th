@@ -4,16 +4,7 @@ import '@testing-library/jest-dom';
 import { useReadContract } from 'wagmi';
 import VotingStats from '@/app/ui/VotingStats/VotingStats';
 
-// Mock the motion/react library
-jest.mock('motion/react', () => {
-  return {
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-    motion: {
-      div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-      span: ({ children, ...props }: any) => <span {...props}>{children}</span>,
-    },
-  };
-});
+// We'll use the global mock from jest.setup.js for motion/react
 
 describe('VotingStats', () => {
   // Mock implementation for loading state

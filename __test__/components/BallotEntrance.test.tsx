@@ -4,12 +4,13 @@ import '@testing-library/jest-dom';
 import { useAccount, useDisconnect, useReadContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import BallotEntrance from '@/app/ui/BallotEntrance/BallotEntrance';
 
-// Mock the VotingStats component
+// Mock VotingStats in a simpler way that's compatible with React 19
 jest.mock('@/app/ui/VotingStats/VotingStats', () => {
-  return function MockedVotingStats() {
+  return function MockVotingStats() {
     return <div data-testid="voting-stats-component">Voting Stats Component</div>;
   };
 });
+
 
 describe('BallotEntrance', () => {
   const mockPush = jest.fn();
