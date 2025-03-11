@@ -7,7 +7,7 @@ import BallotEntrance from '@/app/ui/BallotEntrance/BallotEntrance';
 // Mock VotingStats in a simpler way that's compatible with React 19
 jest.mock('@/app/ui/VotingStats/VotingStats', () => {
   return function MockVotingStats() {
-    return <div data-testid="voting-stats-component">Voting Stats Component</div>;
+    return React.createElement('div', {'data-testid': 'voting-stats-component'}, 'Voting Stats Component');
   };
 });
 

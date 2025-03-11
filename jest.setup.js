@@ -2,11 +2,11 @@
 import React from 'react';
 // Mock motion/react
 jest.mock('motion/react', () => ({
-  AnimatePresence: ({ children }) => children,
+  AnimatePresence: function AnimatePresence({ children }) { return children; },
   motion: {
-    div: (props) => <div {...props}>{props.children}</div>,
-    span: (props) => <span {...props}>{props.children}</span>,
-  },
+    div: function MotionDiv(props) { return React.createElement('div', props, props.children); },
+    span: function MotionSpan(props) { return React.createElement('span', props, props.children); }
+  }
 }));
 // Mock next/font/google
 jest.mock('next/font/google', () => ({

@@ -6,7 +6,7 @@ import Footer from '@/app/ui/Footer/Footer';
 // Mock the Trillions component in a way compatible with React 19
 jest.mock('@/app/ui/Trillions', () => {
   return function MockTrillions() {
-    return <div data-testid="trillions-component">Trillions Component</div>;
+    return React.createElement('div', {'data-testid': 'trillions-component'}, 'Trillions Component');
   };
 });
 

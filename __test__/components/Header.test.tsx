@@ -4,15 +4,15 @@ import '@testing-library/jest-dom';
 
 // Create an inline mock component instead of using the external HeaderMock.jsx
 const Header = ({ title = "Blockchain-based Voting DApp" }) => {
-  return (
-    <header data-testid="header-component">
-      <h1 data-testid="header-title" className="text-5xl text-slate-800 font-bold">
-        {title}
-      </h1>
-      <div data-testid="connect-button">Connect Button</div>
-      <div className="animate-pulse"></div>
-    </header>
-  );
+  return React.createElement('header', {'data-testid': 'header-component'}, [
+    React.createElement('h1', {
+      'data-testid': 'header-title', 
+      className: 'text-5xl text-slate-800 font-bold',
+      key: 'title'
+    }, title),
+    React.createElement('div', {'data-testid': 'connect-button', key: 'button'}, 'Connect Button'),
+    React.createElement('div', {className: 'animate-pulse', key: 'pulse'})
+  ]);
 };
 
 // Mock the actual Header component
