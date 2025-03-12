@@ -19,11 +19,27 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
           
+      - name: Approve PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Enable auto-merge for Dependabot PRs
         if: |
           steps.metadata.outputs.update-type == 'version-update:semver-minor' || 
           steps.metadata.outputs.update-type == 'version-update:semver-patch'
         run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      # Add additional check for production dependencies
+      - name: Wait for CI to succeed for production dependencies
+        if: contains(steps.metadata.outputs.dependency-group, 'production')
+        run: |
+          echo "Waiting for CI to complete for production dependency update"
+          gh pr checks "$PR_URL" --watch
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
