@@ -1,0 +1,38 @@
+version: 2
+updates:
+  # Enable version updates for npm/pnpm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    groups:
+      development-dependencies:
+        dependency-type: "development"
+      production-dependencies:
+        dependency-type: "production"
+    labels:
+      - "dependencies"
+      - "automerge"
+    security-updates-limit: 5
+    ignore:
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "next"
+        versions: ["*-canary.*"]
+      - dependency-name: "@rainbow-me/rainbowkit"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "wagmi"
+        update-types: ["version-update:semver-major"]
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "github_actions"
