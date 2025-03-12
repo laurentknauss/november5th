@@ -9,30 +9,21 @@ permissions:
   pull-requests: write
 
 jobs:
-  dependabot-auto-merge:
+  dependabot:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Approve PR
-        run: gh pr review --approve "$PR_URL"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
           
       - name: Enable auto-merge for Dependabot PRs
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'dependencies') }}
-        run: gh pr merge --auto --squash "$PR_URL"
+        if: |
+          steps.metadata.outputs.update-type == 'version-update:semver-minor' || 
+          steps.metadata.outputs.update-type == 'version-update:semver-patch'
+        run: gh pr merge --auto --merge "$PR_URL"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
-          
-      - name: Get commit hash
-        id: commit
-        run: echo "hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-        
-      - name: Report commit hash
-        run: echo "Auto-merge processed for dependabot PR at commit ${{ steps.commit.outputs.hash }} on dev branch"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
