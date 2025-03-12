@@ -20,7 +20,7 @@ const Footer = () => {
   }, []);
   
   return (
-    <footer className={`${inter.className} w-full mt-auto flex justify-center py-4`}>
+    <footer className={`${inter.className} w-full mt-auto flex justify-center `}>
       <div className="w-full px-0">
         <div className="bg-zinc-900/95 backdrop-blur-md border-t border-zinc-700/30 p-4 md:p-6 shadow-lg w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
