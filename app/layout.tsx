@@ -7,10 +7,6 @@ import { config } from '@/app/config';
 import AuroraBackground from '@/app/ui/AuroraBackground/AuroraBackground';
 import '@rainbow-me/rainbowkit/styles.css';
 import './globals.css';
-import metadata from './metadata';
-
-// Expose metadata for SEO
-export { default as metadata } from './metadata';
 
 // Create a client
 const queryClient = new QueryClient();

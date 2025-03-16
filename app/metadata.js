@@ -1,6 +1,5 @@
-import { Metadata } from 'next';
-
-const metadata: Metadata = { 
+// This file is for SEO - must not have 'use client' directive
+export const metadata = {
   title: 'Blockchain Voting App',
   description: 'Secure and fair blockchain-based voting platform for democratic decisions.',
   openGraph: { 
@@ -27,5 +26,3 @@ const metadata: Metadata = {
     creator: '@november5th',
   },
 };
-
-export default metadata;

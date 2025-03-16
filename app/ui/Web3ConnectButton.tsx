@@ -1,6 +1,7 @@
 import React from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { Wallet } from 'lucide-react';
+import Image from 'next/image';
 
 const Web3ConnectButton: React.FC = () => {
   return (
@@ -89,16 +90,18 @@ const Web3ConnectButton: React.FC = () => {
                     >
                       {chain.hasIcon && (
                         <div 
-                          className="w-6 h-6 rounded-full mr-3 overflow-hidden"
+                          className="w-6 h-6 rounded-full mr-3 overflow-hidden relative"
                           style={{ 
                             background: chain.iconBackground,
                           }}
                         >
                           {chain.iconUrl && (
-                            <img 
+                            <Image 
                               alt={chain.name ?? 'Chain icon'} 
                               src={chain.iconUrl} 
-                              className="w-full h-full object-cover"
+                              fill
+                              sizes="24px"
+                              className="object-cover"
                             />
                           )}
                         </div>
