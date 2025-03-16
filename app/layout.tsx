@@ -1,36 +1,19 @@
 'use client';
 
-import { Metadata } from 'next';
-import Providers from './providers';
+import { WagmiProvider } from 'wagmi';
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { config } from '@/app/config';
+import AuroraBackground from '@/app/ui/AuroraBackground/AuroraBackground';
+import '@rainbow-me/rainbowkit/styles.css';
 import './globals.css';
+import metadata from './metadata';
 
-export const metadata: Metadata = { 
-  title: 'Blockchain Voting App',
-  description: 'Secure and fair blockchain-based voting platform for democratic decisions.',
-  openGraph: { 
-    type: 'website', 
-    locale: 'en_US', 
-    url: 'https://november5th.xyz', 
-    siteName: 'November 5th - Blockchain Voting',
-    title: 'Blockchain Voting App',
-    description: 'Secure and fair blockchain-based voting platform for democratic decisions.',
-    images: [
-      {
-        url: 'https://november5th.xyz/api/og', 
-        width: 1200,
-        height: 630,
-        alt: 'November 5th Blockchain Voting Platform',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Blockchain Voting App',
-    description: 'Secure and fair blockchain-based voting platform for democratic decisions.',
-    images: ['https://november5th.xyz/api/og'],
-    creator: '@november5th',
-  },
-};
+// Expose metadata for SEO
+export { default as metadata } from './metadata';
+
+// Create a client
+const queryClient = new QueryClient();
 
 export default function RootLayout({
   children,
@@ -40,9 +23,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="h-full">
-        <Providers>
-          {children}
-        </Providers>
+        <WagmiProvider config={config}>
+          <QueryClientProvider client={queryClient}>
+            <RainbowKitProvider>
+              <AuroraBackground>
+                {children}
+              </AuroraBackground>
+            </RainbowKitProvider>
+          </QueryClientProvider>
+        </WagmiProvider>
       </body>
     </html>
   );
