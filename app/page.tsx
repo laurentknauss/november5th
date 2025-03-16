@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { FlipWords } from './ui/FlipWords';
 import Footer from './ui/Footer/Footer';
 import { useAccount } from 'wagmi';
-import DisclaimerTicker from './ui/Header/DisclaimerTicker';
+import CryptoTicker from './ui/CryptoTicker/CryptoTicker';
 
 import Image from 'next/image';
 import BallotEntrance from './ui/BallotEntrance/BallotEntrance';
@@ -24,7 +24,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <DisclaimerTicker />
+      <div className="w-full bg-zinc-800 text-white py-2 px-4">
+        <div className="container mx-auto">
+          <CryptoTicker />
+        </div>
+      </div>
       
       <div className="flex-grow flex flex-col md:flex-row">
         {/* Left side text section */}

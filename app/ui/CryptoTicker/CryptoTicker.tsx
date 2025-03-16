@@ -15,13 +15,15 @@ const CryptoTicker = () => {
     { symbol: 'ETH', price: 0, change24h: 0 },
     { symbol: 'AVAX', price: 0, change24h: 0 },
     { symbol: 'DOGE', price: 0, change24h: 0 },
+    { symbol: 'LINK', price: 0, change24h: 0 },
+    { symbol: 'PAXG', price: 0, change24h: 0 },
   ]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCryptoPrices = async () => {
       try {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,avalanche-2,dogecoin&vs_currencies=usd&include_24hr_change=true');
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,avalanche-2,dogecoin,chainlink,pax-gold&vs_currencies=usd&include_24hr_change=true');
         const data = await response.json();
 
         const updatedPrices = [
@@ -45,6 +47,16 @@ const CryptoTicker = () => {
             price: data.dogecoin.usd, 
             change24h: data.dogecoin.usd_24h_change 
           },
+          { 
+            symbol: 'LINK', 
+            price: data.chainlink.usd, 
+            change24h: data.chainlink.usd_24h_change 
+          },
+          { 
+            symbol: 'PAXG', 
+            price: data['pax-gold'].usd, 
+            change24h: data['pax-gold'].usd_24h_change 
+          },
         ];
         
         setCryptoPrices(updatedPrices);
@@ -64,11 +76,11 @@ const CryptoTicker = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 gap-2">
+    <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
       {loading ? (
         <>
-          {["BTC", "ETH", "AVAX", "DOGE"].map((symbol) => (
-            <div key={symbol} className="h-4 w-16 bg-gray-700 animate-pulse rounded"></div>
+          {Array(6).fill(0).map((_, i) => (
+            <div key={i} className="h-4 w-16 bg-gray-700 animate-pulse rounded"></div>
           ))}
         </>
       ) : (
