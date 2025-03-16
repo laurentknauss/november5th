@@ -13,14 +13,15 @@ const CryptoTicker = () => {
   const [cryptoPrices, setCryptoPrices] = useState<CryptoPrice[]>([
     { symbol: 'BTC', price: 0, change24h: 0 },
     { symbol: 'ETH', price: 0, change24h: 0 },
-    { symbol: 'MATIC', price: 0, change24h: 0 },
+    { symbol: 'AVAX', price: 0, change24h: 0 },
+    { symbol: 'DOGE', price: 0, change24h: 0 },
   ]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCryptoPrices = async () => {
       try {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,matic-network&vs_currencies=usd&include_24hr_change=true');
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,avalanche-2,dogecoin&vs_currencies=usd&include_24hr_change=true');
         const data = await response.json();
 
         const updatedPrices = [
@@ -35,9 +36,14 @@ const CryptoTicker = () => {
             change24h: data.ethereum.usd_24h_change 
           },
           { 
-            symbol: 'MATIC', 
-            price: data['matic-network'].usd, 
-            change24h: data['matic-network'].usd_24h_change 
+            symbol: 'AVAX', 
+            price: data['avalanche-2'].usd, 
+            change24h: data['avalanche-2'].usd_24h_change 
+          },
+          { 
+            symbol: 'DOGE', 
+            price: data.dogecoin.usd, 
+            change24h: data.dogecoin.usd_24h_change 
           },
         ];
         
@@ -61,7 +67,7 @@ const CryptoTicker = () => {
     <div className="flex items-center space-x-6 overflow-x-auto whitespace-nowrap py-2">
       {loading ? (
         <div className="flex space-x-6">
-          {["BTC", "ETH", "MATIC"].map((symbol) => (
+          {["BTC", "ETH", "AVAX", "DOGE"].map((symbol) => (
             <div key={symbol} className="flex items-center">
               <div className="h-4 w-16 bg-gray-700 animate-pulse rounded"></div>
             </div>
