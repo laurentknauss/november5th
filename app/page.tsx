@@ -36,7 +36,7 @@ export default function Home() {
 
         <h1 className="text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-6 bg-clip-text  bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
         The Most <FlipWords words={["Secure", "Reliable", "Transparent"]} duration={3000} className="text-inherit" /> Way To Vote
-      </h1>
+        </h1>
   
         <p className="text-xl md:text-xl text-zinc-700-500 mb-6 md:mb-10 text-center px-4">
             Blockchain-based voting platform ensuring every vote counts.
@@ -57,9 +57,9 @@ export default function Home() {
           ) : (
             <>
               <div 
-                className="w-full h-40 md:h-64 rounded-2xl bg-white  backdrop-blur-sm border-2 border-white-700  flex items-center justify-center relative shadow-lg"
+                className="w-full max-w-xs mx-auto h-20 md:h-32 rounded-xl bg-white backdrop-blur-sm border border-zinc-200 flex items-center justify-center relative shadow-md"
               >
-                <div className="relative w-32 h-32 md:w-48 md:h-48">
+                <div className="relative w-16 h-16 md:w-24 md:h-24">
                   <Image
                     src={REPUBLICAN_LOGO}
                     alt="Republican Party"
@@ -68,15 +68,15 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <div className="absolute bottom-4 text-zinc-800 font-bold drop-shadow-md text-sm md:text-base">
+                <div className="absolute bottom-2 text-zinc-800 font-bold drop-shadow-md text-xs md:text-sm">
                   Republican Party
                 </div>
               </div>
 
               <div 
-                className="w-full h-48 md:h-64 rounded-2xl bg-white  backdrop-blur-sm border-2 border-white-700 flex items-center justify-center relative shadow-lg"
+                className="w-full max-w-xs mx-auto h-20 md:h-32 rounded-xl bg-white backdrop-blur-sm border border-zinc-200 flex items-center justify-center relative shadow-md"
               >
-                <div className="relative w-32 h-32 md:w-48 md:h-48">
+                <div className="relative w-16 h-16 md:w-24 md:h-24">
                   <Image
                     src={DEMOCRAT_LOGO}
                     alt="Democratic Party"
@@ -85,7 +85,7 @@ export default function Home() {
                     priority
                   />
                 </div>
-                <div className="absolute bottom-4 text-zinc-800 font-bold drop-shadow-md text-sm md:text-base">
+                <div className="absolute bottom-2 text-zinc-800 font-bold drop-shadow-md text-xs md:text-sm">
                   Democratic Party
                 </div>
               </div>
