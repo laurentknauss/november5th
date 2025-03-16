@@ -61,10 +61,10 @@ const Footer = () => {
           </div>
           
           <div className="border-t border-zinc-700/50 mt-4 pt-4 flex flex-col items-center text-center max-w-7xl mx-auto">
-            <p className="text-sm text-zinc-400">
+            <p className="text-lg text-zinc-400">
               © {mounted ? new Date().getFullYear() : '2025'} Blockchain Voting - <span className="text-red-500">DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity</span>
             </p>
-            <p className="text-sm text-zinc-400 mt-1 md:mt-0">
+            <p className="text-emerald-300 text-zinc-400 mt-1 md:mt-0">
               Crafted by{' '}
               <a href="https://knauss.dev" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
                 Laurent Knauss
