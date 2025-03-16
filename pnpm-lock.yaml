@@ -78,6 +78,9 @@ importers:
         specifier: ^2.0.0
         version: 2.14.12(@tanstack/query-core@5.67.2)(@tanstack/react-query@5.67.2(react@19.0.0-rc-66855b96-20241106))(@types/react@18.3.18)(bufferutil@4.0.9)(encoding@0.1.13)(react@19.0.0-rc-66855b96-20241106)(typescript@5.8.2)(utf-8-validate@5.0.10)(viem@2.23.9(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10))
     devDependencies:
+      '@next/swc-linux-x64-gnu':
+        specifier: ^15.2.2
+        version: 15.2.2
       '@swc/jest':
         specifier: ^0.2.37
         version: 0.2.37(@swc/core@1.11.8(@swc/helpers@0.5.15))
@@ -779,6 +782,12 @@ packages:
 
   '@next/swc-linux-x64-gnu@15.2.1':
     resolution: {integrity: sha512-RbsVq2iB6KFJRZ2cHrU67jLVLKeuOIhnQB05ygu5fCNgg8oTewxweJE8XlLV+Ii6Y6u4EHwETdUiRNXIAfpBww==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@next/swc-linux-x64-gnu@15.2.2':
+    resolution: {integrity: sha512-c3kWSOSsVL8rcNBBfOq1+/j2PKs2nsMwJUV4icUxRgGBwUOfppeh7YhN5s79enBQFU+8xRgVatFkhHU1QW7yUA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -5442,6 +5451,8 @@ snapshots:
 
   '@next/swc-linux-x64-gnu@15.2.1':
     optional: true
+
+  '@next/swc-linux-x64-gnu@15.2.2': {}
 
   '@next/swc-linux-x64-musl@15.2.1':
     optional: true
