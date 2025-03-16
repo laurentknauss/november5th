@@ -64,31 +64,32 @@ const CryptoTicker = () => {
   }, []);
 
   return (
-    <div className="flex items-center space-x-6 overflow-x-auto whitespace-nowrap py-2">
+    <div className="grid grid-cols-4 gap-2">
       {loading ? (
-        <div className="flex space-x-6">
+        <>
           {["BTC", "ETH", "AVAX", "DOGE"].map((symbol) => (
-            <div key={symbol} className="flex items-center">
-              <div className="h-4 w-16 bg-gray-700 animate-pulse rounded"></div>
-            </div>
+            <div key={symbol} className="h-4 w-16 bg-gray-700 animate-pulse rounded"></div>
           ))}
-        </div>
+        </>
       ) : (
         cryptoPrices.map((crypto) => (
           <div key={crypto.symbol} className="flex items-center">
-            <span className="font-semibold mr-2">{crypto.symbol}</span>
-            <span className="mr-2">${crypto.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+            <span className="font-semibold mr-1">{crypto.symbol}</span>
+            <span className="mr-1">${crypto.price.toLocaleString(undefined, { 
+              minimumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2, 
+              maximumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2 
+            })}</span>
             <span 
               className={`flex items-center text-xs ${
                 crypto.change24h >= 0 ? 'text-green-500' : 'text-red-500'
               }`}
             >
               {crypto.change24h >= 0 ? (
-                <ArrowUp className="h-3 w-3 mr-1" />
+                <ArrowUp className="h-3 w-3" />
               ) : (
-                <ArrowDown className="h-3 w-3 mr-1" />
+                <ArrowDown className="h-3 w-3" />
               )}
-              {Math.abs(crypto.change24h).toFixed(2)}%
+              {Math.abs(crypto.change24h).toFixed(1)}%
             </span>
           </div>
         ))
