@@ -28,7 +28,7 @@ const Footer = () => {
             <div className="flex flex-col space-y-2 items-start md:pl-8">
               <h3 className="text-lg text-white font-bold mb-1">Blockchain Voting</h3>
               <p className="text-sm text-zinc-300 text-left">
-                Decentralized voting platform <br/>Powered by Avalanche é Chainlink  <br/>For secure and transparent voting
+                Decentralized voting platform <br/>Powered by Avalanche & Chainlink  <br/>For secure and transparent voting
               </p>
             </div>
             
@@ -62,14 +62,14 @@ const Footer = () => {
           
           <div className="border-t border-zinc-700/50 mt-4 pt-4 flex flex-col items-center text-center max-w-7xl mx-auto">
             <p className="text-sm text-zinc-400">
-              © {mounted ? new Date().getFullYear() : '2025'} Blockchain Voting - <span className="text-red-500">Independent Project</span>
+              © {mounted ? new Date().getFullYear() : '2025'} Blockchain Voting - <span className="text-red-500">DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity</span>
             </p>
             <p className="text-sm text-zinc-400 mt-1 md:mt-0">
               Crafted by{' '}
               <a href="https://knauss.dev" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
                 Laurent Knauss
               </a>{' '}
-              | Software  Engineer
+              | Software Engineer
             </p>
           </div>
         </div>
