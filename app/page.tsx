@@ -4,14 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { FlipWords } from './ui/FlipWords';
 import Footer from './ui/Footer/Footer';
 import { useAccount } from 'wagmi';
-import dynamic from 'next/dynamic';
+
 import Image from 'next/image';
 import BallotEntrance from './ui/BallotEntrance/BallotEntrance';
+import Web3ConnectButton from './ui/Web3ConnectButton';
 
-const ConnectButton = dynamic(
-  () => import('@rainbow-me/rainbowkit').then((mod) => mod.ConnectButton),
-  { ssr: false }
-);
 
 const REPUBLICAN_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/1200px-Republicanlogo.svg.png";
 const DEMOCRAT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/DemocraticLogo.svg/1200px-DemocraticLogo.svg.png";
@@ -48,7 +45,7 @@ export default function Home() {
           </p>
           <div className="flex justify-center w-full">
             <div className="transform scale-100 md:scale-125 backdrop-blur-md p-8 rounded-xl ">
-              <ConnectButton />
+              <Web3ConnectButton />
             </div>
           </div>
         </div>
