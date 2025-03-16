@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { FlipWords } from './ui/FlipWords';
 import Footer from './ui/Footer/Footer';
 import { useAccount } from 'wagmi';
+import DisclaimerTicker from './ui/Header/DisclaimerTicker';
 
 import Image from 'next/image';
 import BallotEntrance from './ui/BallotEntrance/BallotEntrance';
@@ -23,24 +24,17 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="w-full bg-zinc-800 text-red-500 py-2 px-6 text-center font-bold">
-        DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity
-      </div>
-
+      <DisclaimerTicker />
       
-          
       <div className="flex-grow flex flex-col md:flex-row">
         {/* Left side text section */}
         <div className="w-full md:w-1/2 p-6 md:p-16 flex flex-col items-center justify-center">
-
 
         <h1 className="text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-6 bg-clip-text  bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
         The Most <FlipWords words={["Secure", "Reliable", "Transparent"]} duration={3000} className="text-inherit" /> Way To Vote
       </h1>
   
-      
-
-          <p className="text-xl md:text-xl text-zinc-700-500 mb-6 md:mb-10 text-center px-4">
+        <p className="text-xl md:text-xl text-zinc-700-500 mb-6 md:mb-10 text-center px-4">
             Blockchain-based voting platform ensuring every vote counts.
           </p>
           <div className="flex justify-center w-full">
