@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export async function GET() {
+export async function GET(request: Request) {
   return new ImageResponse(
     (
       <div
@@ -19,35 +19,37 @@ export async function GET() {
           textAlign: 'center',
           color: '#1a202c',
           padding: '20px',
+
+
         }}
-      >
-        <h1 style={{ fontSize: 64, fontWeight: 'bold', marginBottom: '20px' }}>
-          Blockchain Voting App
-        </h1>
-        <p style={{ fontSize: 32, marginBottom: '40px' }}>
-          Vote in all security and fairness.
-        </p>
-        <div
-          style={{
-            width: '80px',
-            height: '80px',
-            backgroundColor: '#4A90E2',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#fff',
-            fontSize: 40,
-            fontWeight: 'bold',
-          }}
         >
-          🗳️
+          <h1 style={{ fontSize: 64, fontWeight: 'bold', marginBottom: '20px' }}>
+            Blockchain Voting App
+          </h1>
+          <p style={{ fontSize: 32, marginBottom: '40px' }}>
+            Vote in all security and fairness.
+          </p>
+          <div
+            style={{
+              width: '80px',
+              height: '80px',
+              backgroundColor: '#4A90E2',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#fff',
+              fontSize: 40,
+              fontWeight: 'bold',
+            }}
+          >
+            🗳️
+          </div>
         </div>
-      </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-    }
-  );
-}
+      ),
+      {
+        width: 1200,
+        height: 630,
+      }
+    );
+  }
