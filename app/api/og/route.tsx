@@ -2,9 +2,8 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const contentType = 'image/png'
 
-export async function GET(request:Request) {
+export async function GET() {
   return new ImageResponse(
     (
       <div
@@ -49,7 +48,10 @@ export async function GET(request:Request) {
     {
       width: 1200,
       height: 630,
+      headers: {
+        'Content-Type': 'image/png',
+        'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800'
+      }
     }
   );
-  console.log('OpenGraph  image generation requested')  
 }
