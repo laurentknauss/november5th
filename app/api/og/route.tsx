@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/og';
 export const runtime = 'edge';
 export const contentType = 'image/png'
 
-export async function GET() {
+export async function GET(request:Request) {
   return new ImageResponse(
     (
       <div
@@ -51,4 +51,5 @@ export async function GET() {
       height: 630,
     }
   );
+  console.log('OpenGraph  image generation requested')  
 }
