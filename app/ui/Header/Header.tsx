@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import CoinGeckoAttribution from '@/app/components/CoinGeckoAttribution';
 
 interface HeaderProps {
   title?: string;
@@ -19,12 +20,7 @@ const Header = ({
   
   return (
     <header className="w-full flex flex-col items-center pt-12 pb-10 relative">
-      <div className="absolute left-6 top-6">
-        <a href="https://www.coingecko.com?utm_source=november5th&utm_medium=referral" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-gray-500 hover:text-gray-700">
-          <img src="/images/coingecko-logo.png" alt="CoinGecko Logo" width="24" height="24" className="mr-2" />
-          <span>Powered by CoinGecko</span>
-        </a>
-      </div>
+      <CoinGeckoAttribution />
       <h1 className="text-5xl text-slate-800 font-bold mb-4 drop-shadow-sm tracking-tight">
         {title}
       </h1>
