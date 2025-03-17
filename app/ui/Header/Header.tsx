@@ -20,10 +20,10 @@ const Header = ({
   }, []);
   
   return (
-    <header className="w-full flex flex-col items-center pt-8 pb-8 relative">
-      <div className="absolute left-4 top-4">
+    <header className="w-full flex flex-col items-center pt-12 pb-10 relative">
+      <div className="absolute left-6 top-6">
         <Link href="https://www.coingecko.com?utm_source=november5th&utm_medium=referral" target="_blank" rel="noopener noreferrer" className="flex items-center text-xs text-gray-500 hover:text-gray-700">
-          <Image src="/images/coingecko-logo.svg" alt="CoinGecko Logo" width={20} height={20} className="mr-1" />
+          <Image src="/images/coingecko-logo.svg" alt="CoinGecko Logo" width={24} height={24} className="mr-2" />
           <span>Powered by CoinGecko</span>
         </Link>
       </div>
