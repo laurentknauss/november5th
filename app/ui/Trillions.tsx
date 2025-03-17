@@ -403,9 +403,6 @@ const Trillions: React.FC = () => {
       {currentDebt ? `$${currentDebt.toLocaleString()}` : 'Loading...'}
         
       </div>
-      <div className="text-md text-white" suppressHydrationWarning>
-        {debtData?.last_updated ? new Date(debtData.last_updated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Unknown'}
-      </div>
       <div className="mt-2 text-sm text-gray-500">Real-time estimate based on U.S. Treasury data</div>
     </div>
   );

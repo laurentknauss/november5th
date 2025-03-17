@@ -23,8 +23,10 @@
 body {
   color: var(--foreground);
   font-family: 'Inter', sans-serif; 
-  position: relative;
+  
   min-height: 100vh;
+  margin: 0; 
+  padding: 0; 
 }
 
 @layer utilities {
