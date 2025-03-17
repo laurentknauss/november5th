@@ -18,7 +18,7 @@ const Header = ({
   }, []);
   
   return (
-    <header className="w-full flex flex-col items-center pt-12 pb-10 relative">
+    <header className="w-full flex flex-col items-center pt-16 pb-14 relative">
       <div className="absolute left-6 top-6">
         <a 
           href="https://www.coingecko.com?utm_source=november5th&utm_medium=referral" 
