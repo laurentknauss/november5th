@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link'; 
+import Image from 'next/image';
+
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 interface HeaderProps {
@@ -16,8 +19,21 @@ const Header = ({
   useEffect(() => {
     setMounted(true);
   }, []);
+  
   return (
-    <header className="w-full flex flex-col items-center pt-8 pb-8">
+    <header className="w-full flex flex-col items-center pt-16 pb-14 relative">
+      <div className="absolute left-6 top-6">
+        <a 
+          href="https://www.coingecko.com?utm_source=november5th&utm_medium=referral" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center text-xs text-gray-500 hover:text-gray-700"
+        >
+          <span className="inline-block w-6 h-6 bg-[#8dc63f] rounded-full mr-2 flex-shrink-0 text-white font-bold text-[10px] flex items-center justify-center">CG</span>
+          <span>Powered by CoinGecko</span>
+        </a>
+      </div>
+      
       <h1 className="text-5xl text-slate-800 font-bold mb-4 drop-shadow-sm tracking-tight">
         {title}
       </h1>
