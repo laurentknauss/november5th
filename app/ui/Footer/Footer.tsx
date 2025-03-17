@@ -66,7 +66,7 @@ const Footer = () => {
             </p>
             <p className="text-emerald-300 text-zinc-400 mt-1 md:mt-0">
               Crafted by{' '}
-              <a href="https://knauss.dev" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
+              <a href="https://knauss.dev" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-large transition-colors">
                 Laurent Knauss
               </a>{' '}
               | Software Engineer
