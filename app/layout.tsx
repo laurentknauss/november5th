@@ -4,6 +4,7 @@ import { WagmiProvider } from 'wagmi';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { config } from '@/app/config';
+import { SpeedInsights } from '@vercel/speed-insights/react'; 
 import { Analytics, type BeforeSendEvent} from '@vercel/analytics/react'; 
 import AuroraBackground from '@/app/ui/AuroraBackground/AuroraBackground';
 import '@rainbow-me/rainbowkit/styles.css';
@@ -71,6 +72,7 @@ export default function RootLayout({
           </QueryClientProvider>
         </WagmiProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
