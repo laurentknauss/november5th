@@ -20,18 +20,36 @@ const CryptoTicker = () => {
     const fetchCryptoPrices = async () => {
       try {
         const data = await getCryptoPrices();
+        console.log('Fetched data in component:', data); // Debug log
+        
+        // Check if data is valid before processing
+        if (!data || typeof data !== 'object') {
+          console.error('Invalid data received from API:', data);
+          setLoading(false);
+          return;
+        }
+        
+        // Helper function to safely get crypto price info
+        const getCryptoInfo = (cryptoId: string) => {
+          const info = data[cryptoId];
+          return {
+            price: info?.usd ?? 0,
+            change24h: info?.usd_24h_change ?? 0
+          };
+        };
+        
         const updatedPrices: CryptoPrice[] = [
-          { symbol: 'BTC', price: data.bitcoin.usd, change24h: data.bitcoin.usd_24h_change },
-          { symbol: 'ETH', price: data.ethereum.usd, change24h: data.ethereum.usd_24h_change },
-          { symbol: 'AVAX', price: data['avalanche-2'].usd, change24h: data['avalanche-2'].usd_24h_change },
-          { symbol: 'DOGE', price: data.dogecoin.usd, change24h: data.dogecoin.usd_24h_change },
-          { symbol: 'LINK', price: data.chainlink.usd, change24h: data.chainlink.usd_24h_change },
-          { symbol: 'PAXG', price: data['pax-gold'].usd, change24h: data['pax-gold'].usd_24h_change },
+          { symbol: 'BTC', ...getCryptoInfo('bitcoin') },
+          { symbol: 'ETH', ...getCryptoInfo('ethereum') },
+          { symbol: 'AVAX', ...getCryptoInfo('avalanche-2') },
+          { symbol: 'DOGE', ...getCryptoInfo('dogecoin') },
+          { symbol: 'LINK', ...getCryptoInfo('chainlink') },
+          { symbol: 'PAXG', ...getCryptoInfo('pax-gold') },
         ];
         
         setCryptoPrices(updatedPrices);
       } catch (error) {
-        console.error(error);
+        console.error('Error fetching crypto prices:', error);
       } finally {
         setLoading(false);
       }
@@ -69,17 +87,19 @@ const CryptoTicker = () => {
           Array(6).fill(0).map((_, i) => (
             <div key={i} className="h-4 w-16 bg-gray-700 animate-pulse rounded"></div>
           ))
+        ) : cryptoPrices.length === 0 ? (
+          <div className="text-amber-400 text-sm">Price data unavailable</div>
         ) : (
           cryptoPrices.map((crypto) => (
             <div key={crypto.symbol} className="flex items-center">
               <span className="font-semibold mr-1">{crypto.symbol}</span>
-              <span className="mr-1">${crypto.price.toLocaleString(undefined, { 
+              <span className="mr-1">${(crypto.price || 0).toLocaleString(undefined, { 
                 minimumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2, 
                 maximumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2 
               })}</span>
-              <span className={`flex items-center text-xs ${crypto.change24h >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-                {crypto.change24h >= 0 ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />}
-                {Math.abs(crypto.change24h).toFixed(1)}%
+              <span className={`flex items-center text-xs ${(crypto.change24h || 0) >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                {(crypto.change24h || 0) >= 0 ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />}
+                {Math.abs(crypto.change24h || 0).toFixed(1)}%
               </span>
             </div>
           ))
