@@ -34,7 +34,7 @@ export default function Home() {
         {/* Left side text section */}
         <div className="w-full md:w-1/2 p-6 md:p-16 flex flex-col items-center justify-center">
 
-        <h1 className="text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-6 bg-clip-text  bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-6 bg-clip-text bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white overflow-visible min-h-[100px] sm:min-h-[120px]">
         The Most <FlipWords words={["Secure", "Reliable", "Transparent"]} duration={3000} className="text-inherit" /> Way To Vote
         </h1>
   
@@ -94,6 +94,8 @@ export default function Home() {
         </div>
       </div>
       
+
+
       <Footer />
     </div>
   );

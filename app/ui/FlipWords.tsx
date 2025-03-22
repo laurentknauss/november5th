@@ -51,14 +51,14 @@ export const FlipWords = ({
         }}
         exit={{
           opacity: 0,
-          y: -40,
-          x: 40,
+          y: -20,
+          x: 20,
           filter: "blur(8px)",
-          scale: 2,
+          scale: 1.5,
           position: "absolute",
         }}
         className={cn(
-          "z-10 inline-block relative text-left text-neutral-900 dark:text-neutral-100 px-2",
+          "z-10 inline-block relative text-left text-neutral-900 dark:text-neutral-100 px-2 max-w-full break-words",
           className
         )}
         key={currentWord}
@@ -73,7 +73,7 @@ export const FlipWords = ({
               delay: wordIndex * 0.3,
               duration: 0.3,
             }}
-            className="inline-block whitespace-nowrap"
+            className="inline-block whitespace-nowrap max-w-full overflow-visible"
           >
             {word.split("").map((letter, letterIndex) => (
               <motion.span
