@@ -1,0 +1,79 @@
+# Workflow that handles both auto-merging of Dependabot PRs and syncing changes to local repository
+name: Dependabot Auto-Merge and Sync
+
+# Trigger this workflow on pull request events (both when opened and closed)
+on:
+  pull_request:
+    types: [opened, closed]  # Need both events to handle the full automation cycle
+    branches: [dev]  # Only apply to the dev branch
+
+# Set required permissions for the workflow
+permissions:
+  contents: write    # Needed to merge PRs
+  pull-requests: write  # Needed to approve PRs
+
+jobs:
+  # Job 1: Automatically approve and merge Dependabot PRs
+  dependabot-merge:
+    runs-on: ubuntu-latest  # Run on GitHub's servers
+    # Only execute this job when a PR is opened by Dependabot
+    if: ${{ github.event.action == 'opened' && github.actor == 'dependabot[bot]' }}
+    steps:
+      # Step 1: Get metadata about the Dependabot PR
+      - name: Dependabot metadata
+        id: metadata  # Set an ID to reference outputs in later steps
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          
+      # Step 2: Automatically approve the PR
+      - name: Approve PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      # Step 3: Enable auto-merge only for minor or patch updates (safer)
+      - name: Enable auto-merge for Dependabot PRs
+        if: |
+          steps.metadata.outputs.update-type == 'version-update:semver-minor' || 
+          steps.metadata.outputs.update-type == 'version-update:semver-patch'
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      # Step 4: Extra safety check for production dependencies - wait for CI to pass
+      - name: Wait for CI to succeed for production dependencies
+        if: contains(steps.metadata.outputs.dependency-group, 'production')
+        run: |
+          echo "Waiting for CI to complete for production dependency update"
+          gh pr checks "$PR_URL" --watch
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+  # Job 2: Automatically sync merged changes to local repository
+  sync-to-local:
+    # Must use a self-hosted runner that exists on your local machine
+    runs-on: self-hosted
+    # Only execute this job when a PR with "bump" in the title (Dependabot) is merged
+    if: ${{ github.event.action == 'closed' && github.event.pull_request.merged == true && contains(github.event.pull_request.title, 'bump') }}
+    steps:
+      # Step 1: Update the local repository with changes from GitHub
+      - name: Sync local repository
+        run: |
+          # Navigate to your local repository - REPLACE THIS PATH with your actual repository location
+          cd $HOME/your-project-directory
+          
+          # Temporarily store any uncommitted changes
+          git stash
+          
+          # Switch to the dev branch and pull the latest changes (including the merged Dependabot PR)
+          git checkout dev
+          git pull origin dev
+          
+          # Restore any previously uncommitted changes (if there were any)
+          git stash pop || true
+          
+          echo "Local repository successfully synced with Dependabot changes"
