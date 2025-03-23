@@ -34,3 +34,24 @@ body {
     text-wrap: balance;
   }
 }
+
+@media (max-width: 640px) {
+  /* Styles for screens up to 640px wide */
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Styles for screens between 641px and 1024px wide */
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Styles for screens wider than 1024px */
+  body {
+    font-size: 18px;
+  }
+}
