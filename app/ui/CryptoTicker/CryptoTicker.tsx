@@ -60,50 +60,52 @@ const CryptoTicker = () => {
     
     return () => clearInterval(intervalId);
   }, []);
-
   return (
-    <div className="fixed top-0 left-0 w-full bg-zinc-700 min-h-[75px] flex items-center">
-      
-      {/* CoinGecko Logo à gauche */}
-      <div className="absolute left-0 flex items-center pl-4">
-        <Link href="https://www.coingecko.com/en/api?utm_source=yourprojectname&utm_medium=referral" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center">
-          <Image
-            src="/images/coingecko-logo.png"
-            alt="CoinGecko Logo"
-            width={80}
-            height={25}
-            className="mr-2"
-          />
-          <span className="text-md font-bold text-white">Data by CoinGecko</span>
-        </Link>
-      </div>
-
-      {/* Ticker des cryptos à droite */}
-      <div className="absolute right-0 flex items-center gap-4 pr-4">
-        {loading ? (
-          Array(6).fill(0).map((_, i) => (
-            <div key={i} className="h-4 w-16 bg-gray-700 animate-pulse rounded"></div>
-          ))
-        ) : cryptoPrices.length === 0 ? (
-          <div className="text-amber-400 text-sm">Price data unavailable</div>
-        ) : (
-          cryptoPrices.map((crypto) => (
-            <div key={crypto.symbol} className="flex items-center">
-              <span className="font-semibold mr-1">{crypto.symbol}</span>
-              <span className="mr-1">${(crypto.price || 0).toLocaleString(undefined, { 
-                minimumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2, 
-                maximumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2 
-              })}</span>
-              <span className={`flex items-center text-xs ${(crypto.change24h || 0) >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-                {(crypto.change24h || 0) >= 0 ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />}
-                {Math.abs(crypto.change24h || 0).toFixed(1)}%
-              </span>
-            </div>
-          ))
-        )}
+    <div className="fixed top-0 left-0 w-full bg-zinc-700 min-h-[75px] overflow-x-hidden">
+      <div className="container mx-auto px-4 py-2">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          {/* CoinGecko Logo - centered on mobile, left on larger screens */}
+          <div className="flex items-center justify-center sm:justify-start w-full sm:w-auto mb-2 sm:mb-0">
+            <Link href="https://www.coingecko.com/en/api?utm_source=yourprojectname&utm_medium=referral" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center">
+              <Image
+                src="/images/coingecko-logo.png"
+                alt="CoinGecko Logo"
+                width={80}
+                height={25}
+                className="mr-2"
+              />
+              <span className="text-sm font-bold text-white">Data by CoinGecko</span>
+            </Link>
+          </div>
+  
+          {/* Ticker des cryptos - scrollable container on small screens */}
+          <div className="flex flex-wrap justify-center sm:justify-end gap-2 sm:gap-4 w-full sm:w-auto">
+            {loading ? (
+              Array(3).fill(0).map((_, i) => (
+                <div key={i} className="h-4 w-16 bg-transparent animate-pulse rounded"></div>
+              ))
+            ) : cryptoPrices.length === 0 ? (
+              <div className="text-amber-400 text-sm">Price data unavailable</div>
+            ) : (
+              cryptoPrices.map((crypto) => (
+                <div key={crypto.symbol} className="flex items-center bg-transparent rounded px-2 py-1">
+                  <span className="font-semibold mr-1">{crypto.symbol}</span>
+                  <span className="mr-1">${(crypto.price || 0).toLocaleString(undefined, { 
+                    minimumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2, 
+                    maximumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2 
+                  })}</span>
+                  <span className={`flex items-center text-xs ${(crypto.change24h || 0) >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                    {(crypto.change24h || 0) >= 0 ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />}
+                    {Math.abs(crypto.change24h || 0).toFixed(1)}%
+                  </span>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
