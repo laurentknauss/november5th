@@ -18,6 +18,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      screens: { 
+        'xs': '400px',
+      }, 
+      
 
       animation: {
         aurora: "aurora 60s linear infinite",

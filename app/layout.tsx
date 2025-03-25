@@ -60,7 +60,7 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full overflow-x-hidden">
       <body className="h-full">
         <WagmiProvider config={config}>
           <QueryClientProvider client={queryClient}>
