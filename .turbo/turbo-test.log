@@ -1,272 +1,0 @@
-
-
-> november5th@0.1.0 test /home/laurent/Documents/Professionnel/november5th
-> jest
-
-[1m[2mDetermining test suites to run...[22m[22m[999D[K
-[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mFooter.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mFooter.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mFooter.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mFooter.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mFooter.test.tsx[22m
-[K[1A[K[1A[0m[7m[1m[31m FAIL [39m[22m[27m[0m [2m__test__/components/[22m[1mFooter.test.tsx[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mFooter.test.tsx[22m
-[K[1A[K[1A[1m[31m  [1m● [22m[1mFooter › renders the footer component correctly[39m[22m
-
-    TestingLibraryElementError: Unable to find an element with the text: /Powered by Avalanche é Chainlink/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
-
-    Ignored nodes: comments, script, style
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<footer[39m
-          [33mclass[39m=[32m"mocked-font w-full mt-auto flex justify-center"[39m
-        [36m>[39m
-          [36m<div[39m
-            [33mclass[39m=[32m"w-full px-0"[39m
-          [36m>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"bg-zinc-700/95 backdrop-blur-md border-t border-zinc-700/30 p-3 md:p-4 shadow-lg w-full"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"grid grid-cols-1 sm:grid-cols-3 gap-2  mx-auto relative h-auto px-4"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"flex flex-col space-y-2 pt-4 sm:pl-8"[39m
-                [36m>[39m
-                  [36m<h3[39m
-                    [33mclass[39m=[32m"text-lg text-white font-bold mb-1"[39m
-                  [36m>[39m
-                    [0mBlockchain Voting[0m
-                  [36m</h3>[39m
-                  [36m<p[39m
-                    [33mclass[39m=[32m"text-sm text-zinc-300 text-left"[39m
-                  [36m>[39m
-                    [0mDecentralized voting platform [0m
-                    [36m<br />[39m
-                    [0mPowered by Avalanche & Chainlink [0m
-                    [36m<br />[39m
-                    [0mFor secure and transparent voting[0m
-                  [36m</p>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"flex justify-center"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mdata-testid[39m=[32m"trillions-component"[39m
-                  [36m>[39m
-                    [0mTrillions Component[0m
-                  [36m</div>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"flex flex-col space-y-1 pt-2 sm:pr-8 text-right"[39m
-                [36m>[39m
-                  [36m<h3[39m
-                    [33mclass[39m=[32m"text-lg text-white font-bold mb-1"[39m
-                  [36m>[39m
-                    [0mUseful Links[0m
-                  [36m</h3>[39m
-                  [36m<ul[39m
-                    [33mclass[39m=[32m"text-sm space-y-1 pt-2"[39m
-                  [36m>[39m
-                    [36m<li>[39m
-                      [36m<a[39m
-                        [33mclass[39m=[32m"text-zinc-300 hover:text-red-400 transition-colors"[39m
-                        [33mhref[39m=[32m"https://www.avax.network/"[39m
-                        [33mrel[39m=[32m"noopener noreferrer"[39m
-                        [33mtarget[39m=[32m"_blank"[39m
-                      [36m>[39m
-                        [0mAvalanche[0m
-                      [36m</a>[39m
-                    [36m</li>[39m
-                    [36m<li>[39m
-                      [36m<a[39m
-                        [33mclass[39m=[32m"text-zinc-300 hover:text-red-400 transition-colors"[39m
-                        [33mhref[39m=[32m"https://testnet.snowtrace.io/"[39m
-                        [33mrel[39m=[32m"noopener noreferrer"[39m
-                        [33mtarget[39m=[32m"_blank"[39m
-                      [36m>[39m
-                        [0mFuji Explorer[0m
-                      [36m</a>[39m
-                    [36m</li>[39m
-                    [36m<li>[39m
-                      [36m<a[39m
-                        [33mclass[39m=[32m"text-zinc-300 hover:text-red-400 transition-colors"[39m
-                        [33mhref[39m=[32m"https://www.usa.gov/voting"[39m
-                        [33mrel[39m=[32m"noopener noreferrer"[39m
-                        [33mtarget[39m=[32m"_blank"[39m
-                      [36m>[39m
-                        [0mUSA.gov Voting[0m
-                      [36m</a>[39m
-                    [36m</li>[39m
-                  [36m</ul>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"mt-4 pt-4 flex flex-col items-center text-center max-w-7xl mx-auto"[39m
-              [36m>[39m
-                [36m<p[39m
-                  [33mclass[39m=[32m"text-sm"[39m
-                [36m>[39m
-                  [36m<span[39m
-                    [33mclass[39m=[32m"text-red-500"[39m
-                  [36m>[39m
-                    [0mDISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity[0m
-                  [36m</span>[39m
-                [36m</p>[39m
-                [36m<p[39m
-                  [33mclass[39m=[32m"text-red-500 text-sm mt-1 md:mt-0"[39m
-                [36m>[39m
-                  [0mCrafted by[0m
-                  [0m [0m
-                  [36m<a[39m
-                    [33mclass[39m=[32m"text-white font-bold "[39m
-                    [33mhref[39m=[32m"https://knauss.dev"[39m
-                    [33mrel[39m=[32m"noopener noreferrer"[39m
-                    [33mtarget[39m=[32m"_blank"[39m
-                  [36m>[39m
-                    [0mLaurent Knauss[0m
-                  [36m</a>[39m
-                  [0m [0m
-                  [0m| Software Engineer[0m
-                [36m</p>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-          [36m</div>[39m
-        [36m</footer>[39m
-      [36m</div>[39m
-    [36m</body>[39m
-[2m[22m
-[2m    [0m [90m 32 |[39m     [90m// Verify description text[39m[22m
-[2m     [90m 33 |[39m     expect(screen[33m.[39mgetByText([35m/Decentralized voting platform/i[39m))[33m.[39mtoBeInTheDocument()[33m;[39m[22m
-[2m    [31m[1m>[22m[2m[39m[90m 34 |[39m     expect(screen[33m.[39mgetByText([35m/Powered by Avalanche é Chainlink/i[39m))[33m.[39mtoBeInTheDocument()[33m;[39m[22m
-[2m     [90m    |[39m                   [31m[1m^[22m[2m[39m[22m
-[2m     [90m 35 |[39m     [22m
-[2m     [90m 36 |[39m     [90m// Verify Trillions component is rendered[39m[22m
-[2m     [90m 37 |[39m     expect(screen[33m.[39mgetByTestId([32m'trillions-component'[39m))[33m.[39mtoBeInTheDocument()[33m;[39m[0m[22m
-[2m[22m
-[2m      [2mat Object.getElementError ([22m[2mnode_modules/.pnpm/@testing-library+dom@10.4.0/node_modules/@testing-library/dom/dist/config.js[2m:37:19)[22m[2m[22m
-[2m      [2mat [22m[2mnode_modules/.pnpm/@testing-library+dom@10.4.0/node_modules/@testing-library/dom/dist/query-helpers.js[2m:76:38[22m[2m[22m
-[2m      [2mat [22m[2mnode_modules/.pnpm/@testing-library+dom@10.4.0/node_modules/@testing-library/dom/dist/query-helpers.js[2m:52:17[22m[2m[22m
-[2m      [2mat [22m[2mnode_modules/.pnpm/@testing-library+dom@10.4.0/node_modules/@testing-library/dom/dist/query-helpers.js[2m:95:19[22m[2m[22m
-[2m      [2mat Object.getByText ([22m[2m[0m[36m__test__/components/Footer.test.tsx[39m[0m[2m:34:19)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mFooter.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mFooter.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mVotingStats.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mVotingStats.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mVotingStats.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mVotingStats.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mVotingStats.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mVotingStats.test.tsx[22m
-[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__test__/components/[22m[1mVotingStats.test.tsx[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mVotingStats.test.tsx[22m
-[K[1A[K[1A  [1m● [22mConsole
-
-    [2m[31mconsole.error[39m[22m
-[31m      React does not recognize the `whileHover` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `whilehover` instead. If you accidentally passed it from a parent component, remove it from the DOM element.[39m
-[2m[22m
-[2m    [0m [90m 138 |[39m       [36mreturn[39m[33m;[39m[22m
-[2m     [90m 139 |[39m     }[22m
-[2m    [31m[1m>[22m[2m[39m[90m 140 |[39m     originalError[33m.[39mcall(console[33m,[39m [33m...[39margs)[33m;[39m[22m
-[2m     [90m     |[39m                   [31m[1m^[22m[2m[39m[22m
-[2m     [90m 141 |[39m   }[33m;[39m[22m
-[2m     [90m 142 |[39m })[33m;[39m[22m
-[2m     [90m 143 |[39m[0m[22m
-[2m[22m
-[2m      [2mat console.call [as error] ([22m[2mjest.setup.js[2m:140:19)[22m[2m[22m
-[2m      [2mat validateProperty ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:2849:19)[22m[2m[22m
-[2m      [2mat warnUnknownProperties ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:2994:9)[22m[2m[22m
-[2m      [2mat validatePropertiesInDevelopment ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:16735:9)[22m[2m[22m
-[2m      [2mat setInitialProperties ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:17359:7)[22m[2m[22m
-[2m      [2mat completeWork ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:13734:18)[22m[2m[22m
-[2m      [2mat runWithFiberInDEV ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:543:16)[22m[2m[22m
-[2m      [2mat completeUnitOfWork ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:15099:19)[22m[2m[22m
-[2m      [2mat performUnitOfWork ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:15002:11)[22m[2m[22m
-[2m      [2mat workLoopSync ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:14815:41)[22m[2m[22m
-[2m      [2mat renderRootSync ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:14793:11)[22m[2m[22m
-[2m      [2mat performWorkOnRoot ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:14287:11)[22m[2m[22m
-[2m      [2mat performWorkOnRootViaSchedulerTask ([22m[2mnode_modules/.pnpm/react-dom@19.0.0-rc-66855b96-20241106_react@19.0.0-rc-66855b96-20241106/node_modules/react-dom/cjs/react-dom-client.development.js[2m:15842:7)[22m[2m[22m
-[2m      [2mat flushActQueue ([22m[2mnode_modules/.pnpm/react@19.0.0-rc-66855b96-20241106/node_modules/react/cjs/react.development.js[2m:862:34)[22m[2m[22m
-[2m      [2mat Object.<anonymous>.process.env.NODE_ENV.exports.act ([22m[2mnode_modules/.pnpm/react@19.0.0-rc-66855b96-20241106/node_modules/react/cjs/react.development.js[2m:1151:10)[22m[2m[22m
-[2m      [2mat [22m[2mnode_modules/.pnpm/@testing-library+react@16.2.0_@testing-library+dom@10.4.0_@types+react-dom@18.3.5_@type_afc5485236dcf9e78d17bc5755aae8f8/node_modules/@testing-library/react/dist/act-compat.js[2m:47:25[22m[2m[22m
-[2m      [2mat renderRoot ([22m[2mnode_modules/.pnpm/@testing-library+react@16.2.0_@testing-library+dom@10.4.0_@types+react-dom@18.3.5_@type_afc5485236dcf9e78d17bc5755aae8f8/node_modules/@testing-library/react/dist/pure.js[2m:188:26)[22m[2m[22m
-[2m      [2mat render ([22m[2mnode_modules/.pnpm/@testing-library+react@16.2.0_@testing-library+dom@10.4.0_@types+react-dom@18.3.5_@type_afc5485236dcf9e78d17bc5755aae8f8/node_modules/@testing-library/react/dist/pure.js[2m:287:10)[22m[2m[22m
-[2m      [2mat Object.<anonymous> ([22m[2m[0m[36m__test__/components/VotingStats.test.tsx[39m[0m[2m:61:11)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mVotingStats.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mBallotEntrance.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mAuroraBackground.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mAuroraBackground.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mAuroraBackground.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mAuroraBackground.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mAuroraBackground.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mAuroraBackground.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mAuroraBackground.test.tsx[22m
-[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__test__/components/[22m[1mAuroraBackground.test.tsx[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mAuroraBackground.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mHeader.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mHeader.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mHeader.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mHeader.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mHeader.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mHeader.test.tsx[22m
-[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__test__/components/[22m[1mHeader.test.tsx[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2m__test__/components/[22m[1mHeader.test.tsx[22m
-[K[1A[K[1A[999D[K
-[1mTest Suites: [22m[1m[31m1 failed[39m[22m, [1m[32m4 passed[39m[22m, 5 total
-[1mTests:       [22m[1m[31m1 failed[39m[22m, [1m[32m25 passed[39m[22m, 26 total
-[1mSnapshots:   [22m0 total
-[1mTime:[22m        0.879 s, estimated 1 s
-[2mRan all test suites[22m[2m.[22m
-[41m[30m ELIFECYCLE [39m[49m [31mTest failed. See above for more details.[39m
