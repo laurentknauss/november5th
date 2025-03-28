@@ -31,7 +31,7 @@ describe('Footer', () => {
     
     // Verify description text
     expect(screen.getByText(/Decentralized voting platform/i)).toBeInTheDocument();
-    expect(screen.getByText(/Powered by Avalanche é Chainlink/i)).toBeInTheDocument();
+    expect(screen.getByText(/Powered by Avalanche & Chainlink/i)).toBeInTheDocument();
     
     // Verify Trillions component is rendered
     expect(screen.getByTestId('trillions-component')).toBeInTheDocument();
