@@ -1,0 +1,19 @@
+{  
+
+    
+    "tasks" : { 
+        "build" : { 
+            "outputs": [".next/**", "dist/**"], 
+            "dependsOn": [],
+            "cache" : true
+        },
+        "test" : {
+            "outputs": [],
+            "dependsOn": []
+        },
+        "lint" : {
+            "outputs": [],
+            "dependsOn": []
+        }
+    }
+}

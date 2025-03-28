@@ -2,6 +2,7 @@
   "name": "november5th",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.6.2",
   "scripts": {
     "dev": "next dev --turbo",
     "test": "jest",
@@ -70,6 +71,7 @@
     "stream-http": "^3.2.0",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.2.6",
+    "turbo": "^2.4.4",
     "typescript": "^5",
     "url": "^0.11.0"
   },

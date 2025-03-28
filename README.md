@@ -9,12 +9,13 @@ November 5th is a decentralized voting application built with Next.js and blockc
 - 🌈 RainbowKit
 - 🔗 Wagmi
 - 💅 TailwindCSS
-- 🎨 Ui.aceternity
-- 📘 TypeScript
+- 🎨 DaisyUI
+- 📘 TypeScript 
+- Vercel & TurboRepo
 
 ## 📋 Prerequisites
 - 📦 Node.js (v18 or higher)
-- 🧶 Yarn package manager
+- 🧶 Pnpm package manager
 - 🦊 MetaMask or any Web3 wallet
 
 ## 🚀 Installation
@@ -22,7 +23,7 @@ November 5th is a decentralized voting application built with Next.js and blockc
 1. 📥 Clone the repository
 2. 📂 cd november5th
 3. 🛠️ pnpm build
-4. 🏃‍♂️ pnpm dev 
+4. 🏃‍♂️ pnpm run dev 
 
 ## 🔒 Security Features
 - ✅ Secure blockchain voting

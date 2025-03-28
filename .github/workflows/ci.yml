@@ -17,13 +17,13 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 10
           run_install: false
         
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
       
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -47,9 +47,12 @@ jobs:
         
       - name: Test
         run: pnpm test
-      
-      - name: Build
-        run: pnpm build
+
+      - name: Clean Turbo Cache 
+        run: pnpm turbo clean 
+
+      - name: Turbo Build with Remote Cache 
+        run: turbo run build --remote-only
         
       - name: Get commit hash
         id: commit

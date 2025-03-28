@@ -6,6 +6,10 @@
 .pnp.js
 .yarn/install-state.gz
 
+# for turbo cache large file 
+.turbo/
+.turbo/cache/
+
 # testing
 /coverage
 
@@ -34,3 +38,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Turborepo
+.turbo

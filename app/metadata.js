@@ -1,4 +1,6 @@
-// This file is for SEO - must not have 'use client' directive
+/* This file is for SEO - must not have 'use client' directive
+* Metadata is centralized here making it easier to manage and update.
+*/ 
 export const metadata = {
   title: 'Blockchain Voting App',
   description: 'Secure and fair blockchain-based voting platform for democratic decisions.',
