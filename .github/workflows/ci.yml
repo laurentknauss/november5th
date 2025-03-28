@@ -50,9 +50,9 @@ jobs:
 
       - name: Clean Turbo Cache 
         run: pnpm turbo clean 
-        
-      - name: Turbo Build
-        run: turbo run build
+
+      - name: Turbo Build with Remote Cache 
+        run: turbo run build --remote-only
         
       - name: Get commit hash
         id: commit

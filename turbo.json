@@ -1,11 +1,11 @@
 {  
-    "remoteCache": { 
-        "enabled" : false
-    },
+
+    
     "tasks" : { 
         "build" : { 
             "outputs": [".next/**", "dist/**"], 
-            "dependsOn": []
+            "dependsOn": [],
+            "cache" : true
         },
         "test" : {
             "outputs": [],
