@@ -7,6 +7,7 @@
 .yarn/install-state.gz
 
 # for turbo cache large file 
+.turbo/
 .turbo/cache/
 
 # testing

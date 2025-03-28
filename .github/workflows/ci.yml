@@ -47,7 +47,10 @@ jobs:
         
       - name: Test
         run: pnpm test
-      
+
+      - name: Clean Turbo Cache 
+        run: pnpm turbo clean 
+        
       - name: Turbo Build
         run: turbo run build
         
