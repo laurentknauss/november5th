@@ -1,6 +1,6 @@
 {  
     "remoteCache": { 
-        "enabled" : true
+        "enabled" : false
     },
     "tasks" : { 
         "build" : { 
