@@ -79,6 +79,6 @@ describe('Footer', () => {
     render(<Footer />);
     
     // Check for the educational project disclaimer
-    expect(screen.getByText('Independent Project')).toBeInTheDocument();
+    expect(screen.getByText('student project')).toBeInTheDocument();
   });
 });
