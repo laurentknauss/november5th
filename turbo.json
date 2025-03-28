@@ -1,4 +1,7 @@
-{ 
+{  
+    "remoteCache": { 
+        "enabled" : true
+    },
     "tasks" : { 
         "build" : { 
             "outputs": [".next/**", "dist/**"], 
