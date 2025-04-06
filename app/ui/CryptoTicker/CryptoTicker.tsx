@@ -61,7 +61,7 @@ const CryptoTicker = () => {
     return () => clearInterval(intervalId);
   }, []);
   return (
-    <div className="fixed top-0 left-0 w-full bg-zinc-700 min-h-[75px] overflow-x-hidden">
+    <div className="fixed top-0 left-0 w-full bg-slate-700 min-h-[75px] overflow-x-hidden">
       <div className="container mx-auto px-4 py-2">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           {/* CoinGecko Logo - centered on mobile, left on larger screens */}
@@ -77,7 +77,7 @@ const CryptoTicker = () => {
                 height={25}
                 className="mr-2"
               />
-              <span className="text-sm font-bold text-white">Data by CoinGecko</span>
+              <span className="text-sm font-bold text-green-50-700">Data by CoinGecko</span>
             </Link>
           </div>
   

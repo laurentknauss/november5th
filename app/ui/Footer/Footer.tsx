@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <footer className={`${inter.className} w-full mt-auto flex justify-center`}>
       <div className="w-full px-0">
-        <div className="bg-zinc-700/95 backdrop-blur-md border-t border-zinc-700/30 p-3 md:p-4 shadow-lg w-full">
+        <div className="bg-slate-700 backdrop-blur-md border-t border-zinc-700/30 p-3 md:p-4 shadow-lg w-full">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2  mx-auto relative h-auto px-4">
             {/* Left: Logo & About */}
             <div className="flex flex-col space-y-2 pt-4 sm:pl-8">
@@ -61,9 +61,9 @@ const Footer = () => {
 
           <div className="mt-4 pt-4 flex flex-col items-center text-center max-w-7xl mx-auto">
             <p className="text-sm">
-              <span className="text-red-500">DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity</span>
+              <span className="text-orange-400">DISCLAIMER: This is a student project for educational purposes only - Not affiliated with any government entity</span>
             </p>
-            <p className="text-red-500 text-sm mt-1 md:mt-0">
+            <p className="text-orange-400 text-sm mt-1 md:mt-0">
               Crafted by{' '}
               <a href="https://knauss.dev" target="_blank" rel="noopener noreferrer" className="text-white font-bold ">
                 Laurent Knauss
