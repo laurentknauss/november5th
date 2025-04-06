@@ -41,18 +41,19 @@ const Web3ConnectButton: React.FC = () => {
                     onClick={openConnectModal}
                     type="button"
                     className="group relative w-full px-6 py-3 rounded-xl 
-                      bg-black
+                      bg-slate-900
                       text-white
-                      shadow-lg hover:shadow-xl 
+                      shadow-xl/60
                       transition-all duration-300 
                       transform hover:-translate-y-1 
                       flex items-center justify-center 
                       space-x-3
-                      border border-slate-700 border-radius "
+                      "
                   
                   >
-                    <Wallet className="w-8 h-8 bg-none text-white-600 transition-colors" />
-                    <span className="bg-none text-white font-unlock tracking-wider">
+                    <Wallet className="w-8 h-8 bg-none text-white-600 transition-colors " />
+                    <span className="bg-none text-white font-unlock tracking-wider 
+                     "> 
                       Connect Wallet
                     </span>
                   </button>

@@ -38,9 +38,7 @@ export default function Home() {
         The Most <FlipWords words={["Secure", "Reliable", "Transparent"]} duration={3000} className="text-inherit" /> Way To Vote
         </h1>
   
-        <p className="text-xl md:text-xl text-slate-900 mb-6 md:mb-10 text-center capitalize px-4 ">
-            Blockchain-based voting platform ensuring every vote counts.
-          </p>
+        <p className="text-shadow-lg text-xl md:text-xl text-slate-900 mb-6 md:mb-10 text-center capitalize px-4 "> Blockchain-based voting platform ensuring every vote counts.   </p>
           <div className="flex justify-center w-full">
             <div className="transform scale-100 md:scale-125 backdrop-blur-md p-8 rounded-xl bg-none ">
               <Web3ConnectButton />
