@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { MetadataRoute } from 'next';
 
 interface PageData {
@@ -30,4 +31,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'weekly',
     priority: page.slug === '' ? 1.0 : 0.8,
   }));
+=======
+import { MetadataRoute } from 'next'; 
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  return [
+    {
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/`
+    }
+  ]
+>>>>>>> dev
 }
