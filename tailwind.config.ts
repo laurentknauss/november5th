@@ -24,7 +24,7 @@ const config: Config = {
       
 
       animation: {
-        aurora: "aurora 60s linear infinite",
+        aurora: "aurora 30s linear infinite",
       },
       keyframes: {
         aurora: {
@@ -37,7 +37,7 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        'radial-gradient': 'radial-gradient(circle at center, rgba(var(--blue-500), 0.2) 0%, transparent 80%)',
+        'radial-gradient': 'radial-gradient(circle at center, rgba(var(--blue-800), 0.5) 0%, transparent 60%)',
       },
 
 

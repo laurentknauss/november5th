@@ -61,8 +61,8 @@ const CryptoTicker = () => {
     return () => clearInterval(intervalId);
   }, []);
   return (
-    <div className="fixed top-0 left-0 w-full bg-slate-700 min-h-[75px] overflow-x-hidden">
-      <div className="container mx-auto px-4 py-2">
+    <div className="fixed top-0 left-0 w-full bg-slate-800  min-h-[85px] overflow-x-hidden">
+      <div className="container mx-auto px-0 py-2">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           {/* CoinGecko Logo - centered on mobile, left on larger screens */}
           <div className="flex items-center justify-center sm:justify-start w-full sm:w-auto mb-2 sm:mb-0">
@@ -97,7 +97,7 @@ const CryptoTicker = () => {
                     minimumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2, 
                     maximumFractionDigits: crypto.symbol === 'DOGE' ? 4 : 2 
                   })}</span>
-                  <span className={`flex items-center text-xs ${(crypto.change24h || 0) >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                  <span className={`flex items-center text-lg font-bold ${(crypto.change24h || 0) >= 0 ? 'text-green-500' : 'text-red-600'}`}>
                     {(crypto.change24h || 0) >= 0 ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />}
                     {Math.abs(crypto.change24h || 0).toFixed(1)}%
                   </span>
