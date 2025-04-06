@@ -32,7 +32,7 @@ const Web3ConnectButton: React.FC = () => {
                 userSelect: 'none' 
               },
             })}
-            className="w-full max-w-xs mx-auto"
+            className="w-full max-w-xs mx-auto "
           >
             {(() => {
               if (!connected) {
@@ -41,18 +41,18 @@ const Web3ConnectButton: React.FC = () => {
                     onClick={openConnectModal}
                     type="button"
                     className="group relative w-full px-6 py-3 rounded-xl 
-                      bg-transparent 
-                      text-zinc-900 
+                      bg-black
+                      text-white
                       shadow-lg hover:shadow-xl 
                       transition-all duration-300 
                       transform hover:-translate-y-1 
                       flex items-center justify-center 
                       space-x-3
-                      border border-zinc-800 border-radius "
+                      border border-slate-700 border-radius "
                   
                   >
-                    <Wallet className="w-8 h-8 text-white-600 transition-colors" />
-                    <span className="font-bold tracking-wider">
+                    <Wallet className="w-8 h-8 bg-none text-white-600 transition-colors" />
+                    <span className="bg-none text-white font-unlock tracking-wider">
                       Connect Wallet
                     </span>
                   </button>

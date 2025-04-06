@@ -399,11 +399,11 @@ const Trillions: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center py-4 px-4 text-center">
       <h2 className="text-xl font-bold text-white mb-3">US National Debt</h2>
-      <div className="text-4xl font-bold text-orange-600 mb-2">
+      <div className="text-4xl font-bold text-slate-900 mb-2">
       {currentDebt ? `$${currentDebt.toLocaleString()}` : 'Loading...'}
         
       </div>
-      <div className="mt-2 text-sm text-gray-500">Real-time estimate based on U.S. Treasury data</div>
+      
     </div>
   );
 };

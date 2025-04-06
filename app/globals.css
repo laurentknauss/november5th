@@ -3,28 +3,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Unlock&display=swap');
+
+
+
 /* Second : Tailwind directives */ 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+/* Custom font utility class */
+@layer utilities {
+  .font-unlock {
+      font-family: "Unlock", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+
+
+
+
+  .font-righteous {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
+
 /* Base layer with font definitions */ 
 @layer base { 
-  html { 
-    font-family: 'Inter', sans-serif; 
-  }
-  
   :root {
     --background: 255, 255, 255;
     --foreground: 0, 0, 0;
   }
-}
+
 
 body {
   color: var(--foreground);
-  font-family: 'Inter', sans-serif; 
-  
-  min-height: 100vh;
+.font-unlock {
+    font-family: "Unlock", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
   margin: 0; 
   padding: 0; 
 }
@@ -54,4 +77,5 @@ body {
   body {
     font-size: 18px;
   }
+}
 }
