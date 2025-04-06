@@ -7,7 +7,7 @@
 */
 
 
-
+import { Insights } from '@/app/insights';
 import type  { Metadata } from 'next';
 import '@rainbow-me/rainbowkit/styles.css';
 import './globals.css';
@@ -67,6 +67,7 @@ export default function RootLayout({
       <body className="h-full">
         <Providers>
            { children } 
+           <Insights /> 
         </Providers>
       </body>
     </html>
