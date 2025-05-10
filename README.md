@@ -1,5 +1,4 @@
-# 🗳️ November 5th - Decentralized Voting Platform
-## disclaimer : not affiliated with ay goverment entities -- indepedent project --
+# 🗳️ November 5th - Decentralized Voting Platform  (disclaimer : not affiliated with any goveremental entities -- independent coding project )
 
 ## 📝 Description
 November 5th is a decentralized voting application built with Next.js and blockchain technology. It provides a secure and transparent platform for conducting elections, featuring both Democratic 🔵 and Republican 🔴 voting options.
